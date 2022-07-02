@@ -1,0 +1,30 @@
+:root {
+  --gray-100: #f4f5f7;
+  --gray-125: #edeef2;
+  --gray-150: #e5e7ec;
+  --gray-200: #d6dae1;
+  --gray-250: #c7ccd6;
+  --gray-250-rgb: 199, 204, 214; /* RGB values needed for setting rgba opacity */
+  --gray-300: #b8bfcc;
+  --gray-300-rgb: 184, 191, 204; 
+  --gray-350: #a9b1c1;
+  --gray-400: #9aa3b6;
+  --gray-450: #8b96ab;
+  --gray-500: #7c88a0;
+  --gray-550: #727d94;
+  --gray-600: #687387;
+  --gray-650: #5e687b;
+  --gray-750: #545d6f;
+  --gray-800: #4a5262;
+  --gray-850: #404856;
+  --gray-900: #363d49;
+  --gray-900-rgb: 54, 61, 73;
+  --gray-925: #313843;
+  --gray-950: #2c323d;
+  --gray-950-rgb: 40, 50, 61;
+
+  --orange: #fdb572;
+
+  --red: #ff7777;
+  --red-700: #574040;
+}
