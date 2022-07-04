@@ -1,0 +1,40 @@
+---
+
+---
+
+<li>
+  <a class="project__title-link" href="#title">
+    <span>icon</span>
+    <h3>Project Name</h3>
+  </a>
+  <a class="project__external-link" href="#source">Source</a>
+  <a class="project__external-link" href="#live">Live</a>
+</li>
+
+
+<style>
+  li {
+    display: grid;
+    grid-template-columns: 1fr max-content max-content;
+    gap: 1rem;
+
+    &:hover {
+      background: #000;
+      color: #fff;
+    }
+  }
+
+  .project__title-link {
+    display: grid;
+    grid-template-columns: 28px 1fr;
+    gap: 1rem;
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+
+  .project__external-link:hover {
+    text-decoration: underline;
+  }
+</style>

@@ -1,0 +1,24 @@
+---
+import ProjectListItem from './PorjectListItem.astro';
+const { title, viewAllUrl } = Astro.props;
+---
+
+<section>
+  <header>
+    <h2>{title}</h2><a href={viewAllUrl}>View All</a>
+  </header>
+  <ul>
+    <ProjectListItem />
+    <ProjectListItem />
+    <ProjectListItem />
+    <ProjectListItem />
+  </ul>
+</section>
+
+<style>
+  header {
+    display: grid;
+    grid-template-columns: 1fr max-content;
+    gap: 1rem;
+  }
+</style>
