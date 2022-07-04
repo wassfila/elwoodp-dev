@@ -1,0 +1,17 @@
+---
+import SiteLayout from "./SiteLayout.astro";
+import Container from "../components/UI/Container.astro";
+import { Markdown } from 'astro/components';
+const { content } = Astro.props;
+
+const response = await fetch(`https://raw.githubusercontent.com/${content.sourceUrl}/main/README.md`);
+const README = await response.text();
+---
+
+<SiteLayout>
+  <Container>
+    <div>
+      <Markdown content={README} />
+    </div>
+  </Container>
+</SiteLayout>
