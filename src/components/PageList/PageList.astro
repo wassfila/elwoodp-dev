@@ -1,17 +1,22 @@
 ---
-import ProjectListItem from './PorjectListItem.astro';
-const { title, viewAllUrl } = Astro.props;
+import ProjectListItem from './ProjectListItem.astro';
+const { type, title } = Astro.props;
+const projects = await Astro.glob('../../pages/projects/*.md');
+// const articles = await Astro.glob('../../pages/articles/*.md');
+const showProjects = true;
 ---
 
 <section>
   <header>
-    <h2>{title}</h2><a href={viewAllUrl}>View All</a>
+    <h2>{title}</h2><a href="#">View All</a>
   </header>
   <ul>
-    <ProjectListItem />
-    <ProjectListItem />
-    <ProjectListItem />
-    <ProjectListItem />
+    {(type === 'projects') && projects.map((project) => (
+      <ProjectListItem projectUrl={project.url} {...project.frontmatter} />
+    ))}
+    <!-- {(type === 'articles') && projects.map((article) => (
+      <ArticleListItem {...article.frontmatter} />
+    ))} -->
   </ul>
 </section>
 
