@@ -1,0 +1,39 @@
+---
+const { articleUrl, title, tags, date } = Astro.props;
+---
+
+<li>
+  <a class="title-link" href={articleUrl}>
+    <h3>{title}</h3>
+  </a>
+</li>
+
+
+<style>
+  li {
+    display: grid;
+    grid-template-columns: 1fr max-content max-content;
+    gap: 1rem;
+  }
+
+  .icon {
+    visibility:hidden;
+    &:first-letter {
+      visibility:visible;
+    }
+  }
+
+  .title-link {
+    display: grid;
+    grid-template-columns: 28px 1fr;
+    gap: 1rem;
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+
+  .external-link:hover {
+    text-decoration: underline;
+  }
+</style>

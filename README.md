@@ -1,10 +1,22 @@
 TODO next:
 [x] Create dummy project mds
-[ ] Create dummy article mds
-[ ] Make PageList component work
-  [ ] For both projects and articles
-  [ ] with option for limit
+[x] Create dummy article mds
+[x] Make PageList component work
+  [x] For both projects and articles
+  [x] With option for limit
+  [ ] Basic markup and styling for ArticleListItem
+  [x] Order PageList component items by date
 
 [x] Fetch readmes from github api
 
-[ ] Finish figma mockups
+[ ] Make menu links work
+
+[ ] Make titles and descriptions work
+
+[ ] Make theme toggle work
+
+[ ] SEO head stuff
+
+[ ] Styling
+  [ ] Finish figma mockups
+  [ ] Complete CSS for components

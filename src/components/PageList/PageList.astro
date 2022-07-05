@@ -1,9 +1,14 @@
 ---
 import ProjectListItem from './ProjectListItem.astro';
-const { type, title } = Astro.props;
+import ArticleListItem from './ArticleListItem.astro';
+
+const { type, title, maxNumber } = Astro.props;
 const projects = await Astro.glob('../../pages/projects/*.md');
-// const articles = await Astro.glob('../../pages/articles/*.md');
-const showProjects = true;
+const articles = await Astro.glob('../../pages/articles/*.md');
+// Order both by date
+projects.sort((a, b) => new Date(b.frontmatter.date) - new Date(a.frontmatter.date))
+articles.sort((a, b) => new Date(b.frontmatter.date) - new Date(a.frontmatter.date))
+
 ---
 
 <section>
@@ -11,12 +16,12 @@ const showProjects = true;
     <h2>{title}</h2><a href="#">View All</a>
   </header>
   <ul>
-    {(type === 'projects') && projects.map((project) => (
-      <ProjectListItem projectUrl={project.url} {...project.frontmatter} />
+    {(type === 'projects') && projects.slice(0, maxNumber).map((project) => (
+    <ProjectListItem projectUrl={project.url} {...project.frontmatter} />
     ))}
-    <!-- {(type === 'articles') && projects.map((article) => (
-      <ArticleListItem {...article.frontmatter} />
-    ))} -->
+    {(type === 'articles') && articles.slice(0, maxNumber).map((article) => (
+    <ArticleListItem articleUrl={article.url} {...article.frontmatter} />
+    ))}
   </ul>
 </section>
 
@@ -25,5 +30,11 @@ const showProjects = true;
     display: grid;
     grid-template-columns: 1fr max-content;
     gap: 1rem;
+  }
+
+  // List Items
+  section :global(li:hover) {
+    background: #000;
+    color: #fff;
   }
 </style>
