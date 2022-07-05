@@ -32,9 +32,8 @@ articles.sort((a, b) => new Date(b.frontmatter.date) - new Date(a.frontmatter.da
     gap: 1rem;
   }
 
-  // List Items
-  section :global(li:hover) {
-    background: #000;
+  section :global(li:is(.project, .article):hover) {
+    background: rgba(0,0,0,.75);
     color: #fff;
   }
 </style>

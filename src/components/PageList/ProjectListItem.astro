@@ -2,7 +2,7 @@
 const { projectUrl, title, icon, sourceUrl, liveUrl } = Astro.props;
 ---
 
-<li>
+<li class="project">
   <a class="title-link" href={projectUrl}>
     <span class="icon">{icon}</span>
     <h3>{title}</h3>
@@ -13,15 +13,10 @@ const { projectUrl, title, icon, sourceUrl, liveUrl } = Astro.props;
 
 
 <style>
-  li {
+  .project {
     display: grid;
     grid-template-columns: 1fr max-content max-content;
     gap: 1rem;
-
-    &:hover {
-      background: #000;
-      color: #fff;
-    }
   }
 
   .icon {

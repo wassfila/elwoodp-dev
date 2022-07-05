@@ -2,38 +2,39 @@
 const { articleUrl, title, tags, date } = Astro.props;
 ---
 
-<li>
+<li class="article">
   <a class="title-link" href={articleUrl}>
-    <h3>{title}</h3>
+    <header>
+      <h3>{title}</h3>
+      <ul class="tags">
+        { tags.map((tag) => (
+        <li>{tag}</li>
+        ))}
+      </ul>
+    </header>
+    <date>{date}</date>
   </a>
 </li>
 
 
 <style>
-  li {
-    display: grid;
-    grid-template-columns: 1fr max-content max-content;
-    gap: 1rem;
-  }
-
-  .icon {
-    visibility:hidden;
-    &:first-letter {
-      visibility:visible;
-    }
-  }
-
   .title-link {
     display: grid;
-    grid-template-columns: 28px 1fr;
-    gap: 1rem;
+    grid-template-columns: 1fr max-content;
+    gap: 2rem;
 
-    &:hover {
+    &:hover h3 {
       text-decoration: underline;
     }
   }
 
-  .external-link:hover {
-    text-decoration: underline;
+  header {
+    display: flex;
+    gap: 2rem;
+  }
+
+  .tags {
+    display: flex;
+    gap: 1rem;
   }
 </style>
