@@ -10,16 +10,15 @@ const { title = "elwoodp.dev", description = "Learning to code again, projects a
 ---
 
 <html lang="en">
-<!-- TODO: Move <head> tag to component, currently broken - bug: https://github.com/withastro/astro/issues/3819 - upgrade and move when fixed --> 
-<head> 
-  <Head />
-</head>
-
-<body>
-  <PageHeader />
-  <slot />
-  <Footer />
-</body>
+  {/* TODO: Move <head> tag to component, currently broken - bug: https://github.com/withastro/astro/issues/3819 - upgrade and move when fixed */}
+  <head> 
+    <Head />
+  </head>
+  <body>
+    <PageHeader />
+    <slot />
+    <Footer />
+  </body>
 </html>
 
 

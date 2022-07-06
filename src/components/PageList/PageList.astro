@@ -12,7 +12,7 @@ articles.sort((a, b) => new Date(b.frontmatter.date) - new Date(a.frontmatter.da
 
 <section>
   <header>
-    <h2>{title}</h2><a href="#">View All</a>
+    <h2>{title}</h2><a href={`/${type}`}>View All</a>
   </header>
   <ul>
     {(type === 'projects') && projects.slice(0, maxNumber).map((project) => (
@@ -24,7 +24,7 @@ articles.sort((a, b) => new Date(b.frontmatter.date) - new Date(a.frontmatter.da
   </ul>
 </section>
 
-<!-- style -->
+
 <style>
   header {
     display: grid;
