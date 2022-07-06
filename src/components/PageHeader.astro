@@ -1,5 +1,5 @@
 ---
-
+import ThemeToggle from './ThemeToggle.astro';
 ---
 
 <header>
@@ -12,9 +12,10 @@
     </ul>
     <button id="header-menu__toggle">Menu Toggle</button>
   </nav>
-  <button>Theme Toggle</button>
+  <ThemeToggle />
 </header>
 
+<!-- style -->
 <style>
   header {
     display: flex;
@@ -38,6 +39,7 @@
   }
 </style>
 
+<!-- script -->
 <script>
   const mainMenu = document.getElementById('header-menu__list');
   const menuToggleButton = document.getElementById('header-menu__toggle');

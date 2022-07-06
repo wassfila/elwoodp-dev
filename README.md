@@ -9,11 +9,11 @@ TODO next:
 
 [x] Fetch readmes from github api
 
-[ ] Make menu links work
+[x] Make menu links work
 
 [ ] Make titles and descriptions work
 
-[ ] Make theme toggle work
+[x] Make theme toggle work - https://github.com/saadeghi/theme-change
 
 [ ] SEO head stuff
 

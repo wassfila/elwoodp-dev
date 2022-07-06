@@ -12,6 +12,7 @@
     "astro": "^1.0.0-beta.63"
   },
   "dependencies": {
-    "postcss-nesting": "^10.1.10"
+    "postcss-nesting": "^10.1.10",
+    "theme-change": "^2.1.0"
   }
 }

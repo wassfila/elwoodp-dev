@@ -8,7 +8,6 @@ const articles = await Astro.glob('../../pages/articles/*.md');
 // Order both by date
 projects.sort((a, b) => new Date(b.frontmatter.date) - new Date(a.frontmatter.date))
 articles.sort((a, b) => new Date(b.frontmatter.date) - new Date(a.frontmatter.date))
-
 ---
 
 <section>
@@ -25,6 +24,7 @@ articles.sort((a, b) => new Date(b.frontmatter.date) - new Date(a.frontmatter.da
   </ul>
 </section>
 
+<!-- style -->
 <style>
   header {
     display: grid;
