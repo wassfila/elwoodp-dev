@@ -6,13 +6,13 @@ import Head from '../components/Head.astro';
 import PageHeader from '../components/PageHeader.astro'
 import Footer from '../components/Footer.astro';
 
-const { title = "elwoodp.dev", description = "Learning to code again, projects and articles by Paul Littlewood" } = Astro.props;
+const { title, description } = Astro.props;
 ---
 
 <html lang="en">
   {/* TODO: Move <head> tag to component, currently broken - bug: https://github.com/withastro/astro/issues/3819 - upgrade and move when fixed */}
   <head> 
-    <Head />
+    <Head title={title} description={description} />
   </head>
   <body>
     <PageHeader />

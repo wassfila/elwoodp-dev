@@ -8,7 +8,7 @@ const response = await fetch(`https://raw.githubusercontent.com/${content.source
 const readme = await response.text();
 ---
 
-<SiteLayout>
+<SiteLayout title={content.title} description={content.description}>
   <Container>
     <div>
       <Markdown content={readme} />

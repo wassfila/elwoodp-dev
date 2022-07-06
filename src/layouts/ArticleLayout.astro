@@ -2,11 +2,11 @@
 import SiteLayout from "./SiteLayout.astro";
 import Container from "../components/UI/Container.astro";
 import { Markdown } from 'astro/components';
-const { content } = Astro.props;
 
+const { content } = Astro.props;
 ---
 
-<SiteLayout>
+<SiteLayout title={content.title} description={content.description}>
   <Container>
     <div>
       <slot />

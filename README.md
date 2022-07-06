@@ -11,11 +11,10 @@ TODO next:
 
 [x] Make menu links work
 
-[ ] Make titles and descriptions work
-
 [x] Make theme toggle work - https://github.com/saadeghi/theme-change
 
 [ ] SEO head stuff
+  [ ] Make titles and descriptions work
 
 [ ] Styling
   [ ] Finish figma mockups
