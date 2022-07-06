@@ -10,15 +10,11 @@ const { title = "elwoodp.dev", description = "Learning to code again, projects a
 ---
 
 <html lang="en">
-<!-- Head Component: Move to component but broken - suspected bug: https://github.com/withastro/astro/issues/3819 -->
-<head>
-  <meta charset="utf-8" />
-  <meta name="description" property="og:description" content={description} />
-  <meta name="viewport" content="width=device-width" />
-  <title>{title}</title>
-  <link rel="icon" href="/favicon.svg" />
+<!-- TODO: Move <head> tag to component, currently broken - bug: https://github.com/withastro/astro/issues/3819 - upgrade and move when fixed --> 
+<head> 
+  <Head />
 </head>
-<!-- END Head Component -->
+
 <body>
   <PageHeader />
   <slot />
