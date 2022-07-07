@@ -10,10 +10,7 @@ const { title, description } = Astro.props;
 ---
 
 <html lang="en">
-  {/* TODO: Move <head> tag to component, currently broken - bug: https://github.com/withastro/astro/issues/3819 - upgrade and move when fixed */}
-  <head> 
-    <Head title={title} description={description} />
-  </head>
+  <Head title={title} description={description} />
   <body>
     <PageHeader />
     <slot />

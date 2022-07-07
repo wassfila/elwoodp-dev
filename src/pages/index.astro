@@ -2,7 +2,6 @@
 import SiteLayout from '../layouts/SiteLayout.astro';
 import Container from '../components/UI/Container.astro';
 import PageList from '../components/PageList/PageList.astro';
-
 ---
 
 <SiteLayout title="ElwoodP.dev" description="Learning to code again, a designer becomes a better developer.">
@@ -11,8 +10,8 @@ import PageList from '../components/PageList/PageList.astro';
 			<h1>Learning to code again...</h1>
 			<p>Hello I'm Paul, a designer-developer based in York, UK. I built my first client website in 2001 learning as I went. <a href="#">20 years later</a> I’m taking a number of courses to fill gaps in my knowledge and become a better developer. This website is home to a few learning <a href="#">projects</a> charting my progress and <a href="#">writings</a> about what I learn.</p>
 		</div>
-		<PageList type="projects" title="Recent Projects" maxNumber=10 />
-		<PageList type="articles" title="Recent Articles" maxNumber=10 />
+		<PageList type="projects" title="Recent Projects" maxNumber={10} />
+		<PageList type="articles" title="Recent Articles" maxNumber={10} />
 	</Container>
 </SiteLayout>
 
