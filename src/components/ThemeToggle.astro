@@ -1,4 +1,54 @@
-<button id="theme-toggle" data-toggle-theme="light,dark" data-act-class="active">Theme Toggle</button>
+---
+import IconSun from '../assets/icons/icon-sun.astro';
+import IconMoon from '../assets/icons/icon-moon.astro';
+---
+
+<button id="theme-toggle" data-toggle-theme="light,dark" data-act-class="active">
+  <div class="icon icon-sun">
+    <IconSun />
+  </div>
+  <div class="icon icon-moon">
+    <IconMoon />
+  </div>
+</button>
+
+
+<style>
+  button {
+    display: flex;
+    gap: .3rem;
+    padding: 0.20rem;
+    border-radius: 100px;
+    background-color: var(--gray-200);
+  }
+
+  .icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 1.5rem;
+    height: 1.5rem;
+    border-radius: 100%;
+    color: var(--gray-600);
+  }
+
+  .icon-moon {
+    background: var(--gray-900);
+    color: var(--blue);
+
+    :global([data-theme='light']) & {
+      background: transparent;
+      color: var(--gray-600);
+    }
+  }
+
+  .icon-sun {
+    :global([data-theme='light']) & {
+      background: var(--blue);
+      color: var(--yellow);
+    }
+  }
+</style>
 
 
 <script>
