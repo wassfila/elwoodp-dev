@@ -9,10 +9,11 @@
     "preview": "astro preview"
   },
   "devDependencies": {
-    "astro": "^1.0.0-beta.64"
+    "astro": "^1.0.0-beta.64",
+    "postcss": "^8.4.14",
+    "postcss-nested": "^5.0.6"
   },
   "dependencies": {
-    "postcss-nesting": "^10.1.10",
     "theme-change": "^2.1.0"
   }
 }
