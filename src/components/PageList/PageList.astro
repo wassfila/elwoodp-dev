@@ -27,13 +27,39 @@ articles.sort((a, b) => new Date(b.frontmatter.date) - new Date(a.frontmatter.da
 
 <style>
   header {
+    position: relative;
     display: grid;
     grid-template-columns: 1fr max-content;
+    align-items: end;
     gap: 1rem;
+    padding-bottom: 1.25rem;
+    margin-bottom: 1.25rem;
+    border-bottom: 1px solid var(--gray-700);
+  }
+
+  h2 {
+    font-weight: 600;
+    font-size: 1.75rem;
+    line-height: 1;
+    :global([data-theme='light']) & {
+      font-weight: 650;
+    }
+  }
+
+  header a {
+    font-weight: 600;
+    line-height: 1;
+    :global([data-theme='light']) & {
+      font-weight: 650;
+    }
+
+    &:hover {
+      text-decoration: underline;
+    }
   }
 
   section :global(li:is(.project, .article):hover) {
-    background: rgba(0,0,0,.75);
+    background: rgba(0, 0, 0, .75);
     color: #fff;
   }
 </style>
