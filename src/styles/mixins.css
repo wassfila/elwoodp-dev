@@ -7,6 +7,15 @@
   }
 }
 
+@define-mixin theme-background-colors $dark-color, $light-color {
+  :global([data-theme='dark']) & {
+    background-color: $dark-color;
+  }
+  :global([data-theme='light']) & {
+    background-color: $light-color;
+  }
+}
+
 @define-mixin theme-font-weights $dark-weight, $light-weight {
   :global([data-theme='dark']) & {
     font-weight: $dark-weight;
@@ -15,4 +24,3 @@
     font-weight: $light-weight;
   }
 }
-
