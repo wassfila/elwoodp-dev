@@ -26,6 +26,8 @@ articles.sort((a, b) => new Date(b.frontmatter.date) - new Date(a.frontmatter.da
 
 
 <style>
+  @import "../../styles/mixins.css";
+  
   header {
     position: relative;
     display: grid;
@@ -34,38 +36,37 @@ articles.sort((a, b) => new Date(b.frontmatter.date) - new Date(a.frontmatter.da
     gap: 1rem;
     padding-bottom: 1.25rem;
     margin-bottom: 1.25rem;
-    border-bottom: 1px solid var(--gray-700);
-    :global([data-theme='light']) & {
-      border-color: var(--gray-300);
-    }
+    border-bottom: 1px solid;
+    @mixin theme-border-colors var(--gray-700), var(--gray-300);
   }
 
   h2 {
     font-weight: 600;
     font-size: 1.75rem;
     line-height: 1;
-    color: var(--gray-50);
-    :global([data-theme='light']) & {
-      font-weight: 650;
-      color: var(--gray-800);
-    }
+    @mixin theme-colors var(--gray-50), var(--gray-800);
   }
 
   header a {
     font-weight: 600;
     line-height: 1;
-    color: var(--gray-50);
+    @mixin theme-colors var(--gray-50), var(--gray-800);
     &:hover {
       text-decoration: underline;
     }
-    :global([data-theme='light']) & {
-      font-weight: 650;
-      color: var(--gray-800);
-    }
   }
 
-  section :global(li:is(.project, .article):hover) {
-    background: rgba(0, 0, 0, .75);
-    color: #fff;
+  /* Common styling for child elements */
+  section :global(li:is(.project, .article)) {
+    margin-inline: -1rem;
+    padding-inline: 1rem;
+    border-radius: 8px;
+    &:hover {
+      @mixin theme-background-colors var(--gray-950), var(--gray-100);
+    }
   }
+  section :global(li:is(.project, .article) a) {
+    padding-block: 0.75rem;
+  }
+
 </style>
