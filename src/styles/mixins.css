@@ -1,0 +1,18 @@
+@define-mixin theme-colors $dark-color, $light-color {
+  :global([data-theme='dark']) & {
+    color: $dark-color;
+  }
+  :global([data-theme='light']) & {
+    color: $light-color;
+  }
+}
+
+@define-mixin theme-font-weights $dark-weight, $light-weight {
+  :global([data-theme='dark']) & {
+    font-weight: $dark-weight;
+  }
+  :global([data-theme='light']) & {
+    font-weight: $light-weight;
+  }
+}
+

@@ -16,6 +16,8 @@ import PageList from '../components/PageList/PageList.astro';
 </SiteLayout>
 
 <style>
+	@import "../styles/mixins.css";
+
 	.hero {
 		display: flex;
 		flex-direction: column;
@@ -24,15 +26,11 @@ import PageList from '../components/PageList/PageList.astro';
 
 	h1 {
 		font-size: 4.5rem;
-		font-weight: 700;
 		line-height: 105%;
 		letter-spacing: -0.1rem;
-		color: var(--gray-50);
-		:global([data-theme='light']) & {
-			font-weight: 775;
-			color: var(--gray-800);
-		}
-	} 
+		@mixin theme-colors var(--gray-50), var(--gray-800);
+		@mixin theme-font-weights 700, 775;
+	}
 
 	p {
 		font-size: 1.25rem;
