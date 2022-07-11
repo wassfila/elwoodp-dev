@@ -35,26 +35,32 @@ articles.sort((a, b) => new Date(b.frontmatter.date) - new Date(a.frontmatter.da
     padding-bottom: 1.25rem;
     margin-bottom: 1.25rem;
     border-bottom: 1px solid var(--gray-700);
+    :global([data-theme='light']) & {
+      border-color: var(--gray-300);
+    }
   }
 
   h2 {
     font-weight: 600;
     font-size: 1.75rem;
     line-height: 1;
+    color: var(--gray-50);
     :global([data-theme='light']) & {
       font-weight: 650;
+      color: var(--gray-800);
     }
   }
 
   header a {
     font-weight: 600;
     line-height: 1;
-    :global([data-theme='light']) & {
-      font-weight: 650;
-    }
-
+    color: var(--gray-50);
     &:hover {
       text-decoration: underline;
+    }
+    :global([data-theme='light']) & {
+      font-weight: 650;
+      color: var(--gray-800);
     }
   }
 

@@ -7,7 +7,7 @@ import PageList from '../components/PageList/PageList.astro';
 <SiteLayout title="ElwoodP.dev" description="Learning to code again, a designer becomes a better developer.">
 	<Container>
 		<div class="hero">
-			<h1>Learning to <br />code again...</h1>
+			<h1>Learning to code again...</h1>
 			<p>Hello I'm Paul, a designer-developer based in York, UK. I built my first client website in 2001 learning as I went. <a href="#">20 years later</a> I’m taking a number of courses to fill gaps in my knowledge and become a better developer. This website is home to a few learning <a href="#">projects</a> charting my progress and <a href="#">writings</a> about what I learn.</p>
 		</div>
 		<PageList type="projects" title="Recent Projects" maxNumber={10} />
@@ -23,23 +23,20 @@ import PageList from '../components/PageList/PageList.astro';
 	}
 
 	h1 {
-		font-size: 4.75rem;
+		font-size: 4.5rem;
 		font-weight: 700;
 		line-height: 105%;
 		letter-spacing: -0.1rem;
+		color: var(--gray-50);
 		:global([data-theme='light']) & {
 			font-weight: 775;
+			color: var(--gray-800);
 		}
 	} 
 
 	p {
 		font-size: 1.25rem;
 		line-height: 160%;
-		color: var(--gray-500);
-
-		:global([data-theme='light']) & {
-			color: var(--gray-700);
-		}
 	}
 
 	a {
