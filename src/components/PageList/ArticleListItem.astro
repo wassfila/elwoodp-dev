@@ -8,7 +8,7 @@ const { articleUrl, title, tags, date } = Astro.props;
       <h3>{title}</h3>
       <ul class="tags">
         { tags.map((tag) => (
-        <li>{tag}</li>
+        <li class="tag">{tag}</li>
         ))}
       </ul>
     </header>
@@ -18,10 +18,12 @@ const { articleUrl, title, tags, date } = Astro.props;
 
 
 <style>
+  @import "../../styles/mixins.css";
+
   .title-link {
     display: grid;
     grid-template-columns: 1fr max-content;
-    gap: 2rem;
+    gap: 1.5rem;
 
     &:hover h3 {
       text-decoration: underline;
@@ -35,6 +37,23 @@ const { articleUrl, title, tags, date } = Astro.props;
 
   .tags {
     display: flex;
-    gap: 1rem;
+    align-items: center;
+    gap: .75rem;
+  }
+
+  .tag {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 3px 4px;
+    font-size: 0.875rem;
+    line-height: 1;
+    border-radius: 3px;
+    @mixin theme-background-colors var(--gray-700), var(--gray-200);
+    @mixin theme-colors var(--gray-900), var(--gray-700);
+  }
+
+  date {
+    font-size: 0.875rem;
   }
 </style>

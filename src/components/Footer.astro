@@ -1,24 +1,46 @@
+---
+import IconAstro from "../assets/icons/icon-astro.astro";
+import IconGithub from "../assets/icons/icon-github.astro";
+import IconNetlify from "../assets/icons/icon-netlify.astro";
+---
+
 <footer>
   <div>Made by Paul Littlewood</div>
   <nav>
-    <a href="#">Astro</a>
-    <a href="#">GitHub</a>
-    <a href="#">Netlify</a>
+    <a href="https://astro.build/"><span class="icon"><IconAstro /></span>Astro</a>
+    <a href="https://www.netlify.com/"><span class="icon"><IconNetlify /></span>Netlify</a>
+    <a href="https://github.com/Elwood-P"><span class="icon"><IconGithub /></span>GitHub</a>
   </nav>
 </footer>
 
 <style>
+  @import "../styles/mixins.css";
+
   footer {
     display:flex;
     flex-direction: column;
     align-items: center;
-    gap: .5rem;
-    padding-block: 2rem;
+    gap: .625rem;
+    padding-block: 4.5rem;
     margin-top: 1.25rem;
+    @mixin theme-background-colors var(--gray-950), var(--gray-100);
+    @mixin theme-colors var(--gray-500), var(--gray-600);
+    font-size: 0.875rem;
   }
 
   nav {
     display: flex;
-    gap: 1rem;
+    gap: 1.5rem;
+  }
+
+  a {
+    display: flex;
+    gap: .25rem;
+    align-items: center;
+    line-height: 1;
+  }
+
+  .icon {
+    @mixin theme-colors var(--gray-500), var(--gray-800);
   }
 </style>
