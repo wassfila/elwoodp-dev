@@ -1,5 +1,6 @@
 ---
 import ThemeToggle from './ThemeToggle.astro';
+import IconMenu from '../assets/icons/icon-menu.astro';
 ---
 
 <header>
@@ -10,13 +11,15 @@ import ThemeToggle from './ThemeToggle.astro';
       <li><a href="/projects/">Projects</a></li>
       <li><a href="/articles/">Articles</a></li>
     </ul>
-    <button id="header-menu__toggle">Menu Toggle</button>
+    <button id="header-menu__toggle"><IconMenu /></button>
   </nav>
   <ThemeToggle />
 </header>
 
 
 <style>
+  @import "../styles/mixins.css";
+
   header {
     display: flex;
     justify-content: flex-end;
@@ -26,12 +29,24 @@ import ThemeToggle from './ThemeToggle.astro';
 
   nav {
     display: flex;
+    align-items: center;
     gap: 2rem;
   }
 
   ul {
     display: flex;
-    gap: 1rem;
+    gap: 2rem;
+  }
+
+  a:hover {
+    @mixin theme-colors var(--gray-50), var(--gray-950);
+  }
+
+  button {
+    @mixin theme-colors var(--gray-50), var(--gray-900);
+    &:focus {
+      outline: -webkit-focus-ring-color auto 1px;
+    }
   }
 
   .hidden {
@@ -44,5 +59,10 @@ import ThemeToggle from './ThemeToggle.astro';
   const mainMenu = document.getElementById('header-menu__list');
   const menuToggleButton = document.getElementById('header-menu__toggle');
 
-  menuToggleButton.addEventListener('click', () => mainMenu.classList.toggle('hidden'));
+  menuToggleButton.addEventListener('click', (e) => menuButtonHandler(e));
+
+  function menuButtonHandler(e) {
+    mainMenu.classList.toggle('hidden');
+    mainMenu.classList.contains('hidden') && e.currentTarget.blur();
+  }
 </script>
