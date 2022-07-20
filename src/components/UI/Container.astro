@@ -1,8 +1,8 @@
 ---
-
+const { maxWidth } = Astro.props;
 ---
 
-<div class="container">
+<div class="container" style={maxWidth && `width: min(100%, ${maxWidth}`}>
   <slot />
 </div>
 
@@ -13,6 +13,7 @@
     flex-direction: column;
     gap: 7.5rem;
     margin-inline: auto;
-    width: min(100%, 700px);
+    width: min(100%, 732px);
+    padding-inline: 2rem;
   }
 </style>

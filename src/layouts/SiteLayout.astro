@@ -27,8 +27,9 @@ const { title, description } = Astro.props;
   body {
     display: flex;
     flex-direction: column;
-    gap: 6.25rem;
+    gap: 7.5rem;
     @mixin theme-background-colors var(--gray-900), var(--gray-50);
+    /* background: radial-gradient(50vw 75vh at 40% 0%, rgba(43,36,70,.75) 0%, var(--gray-925) 100%), var(--gray-925); */
     font-family: 'Inter', sans-serif;
     @mixin theme-colors var(--gray-500), var(--gray-700);
   }
