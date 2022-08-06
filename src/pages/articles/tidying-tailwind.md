@@ -9,8 +9,13 @@ tags:
 
 I like many things about Tailwind, and the utility-first CSS approach but one of the obvious criticisms is how unwieldy it looks in your HTML. The mental overhead of processing something like this can be a lot of work:
 
-```html
-<div class="flex items-center justify-between mx-2 font-medium text-white relative bg-black border border-indigo">
+```js
+const btn = document.getElementById(‘btn’);
+let count = 0;
+
+function render() {
+  btn.innerText = `Count: ${count}`;
+}
 ```
 
 There are some existing solutions out there. Tailwind itself has a [Prettier plugin](https://tailwindcss.com/blog/automatic-class-sorting-with-prettier) for sorting classes according to the order it writes them in the final CSS. There is also [Headwind](https://tailwindcss.com/blog/automatic-class-sorting-with-prettier), a plugin for VSCode that also automatically sorts classes.
