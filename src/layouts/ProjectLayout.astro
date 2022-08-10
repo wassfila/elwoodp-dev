@@ -2,6 +2,8 @@
 import SiteLayout from "./SiteLayout.astro";
 import Container from "../components/UI/Container.astro";
 import { Markdown } from 'astro/components';
+import ProjectIcon from "../components/UI/ProjectIcon.astro";
+
 const { content } = Astro.props;
 
 const response = await fetch(`https://raw.githubusercontent.com/${content.sourceUrl}/main/README.md`);
@@ -10,8 +12,63 @@ const readme = await response.text();
 
 <SiteLayout title={content.title} description={content.description}>
   <Container>
-    <div>
+    <header>
+      <span class="icon">
+        <ProjectIcon icon={content.icon} />
+      </span>
+      <h1>{content.title}</h1>
+      <div class="external-links">
+        <a class="external-link" href={`https://github.com/${content.sourceUrl}`}>Source</a>
+        <a class="external-link" href={content.liveUrl}>Live</a>
+      </div>
+    </header>
+    <article>
       <Markdown content={readme} />
-    </div>
+    </article>
   </Container>
 </SiteLayout>
+
+<style>
+  @import "../styles/mixins/mixins.css";
+  @import "../styles/article.css";
+
+  header {
+    display: flex;
+    flex-direction: column;
+    @mixin fluid-gap 2, 2.5;
+    align-items: center;
+  }
+
+  h1 {
+    @mixin theme-colors var(--gray-50), var(--gray-800);
+    @mixin theme-font-weights 700, 775;
+    @mixin fluid-font-size 2.75, 4;
+    line-height: 110%;
+    letter-spacing: -0.1rem;
+    text-align: center;
+  }
+
+  .icon :global(svg) {
+    @mixin fluid-width 5.625, 7;
+    @mixin fluid-height 5.625, 7;
+  }
+
+  .external-links {
+    display: flex;
+    gap: 1rem;
+  }
+
+  .external-link {
+    padding: 4px 8px;
+    border: 1px solid;
+    @mixin theme-background-colors var(--gray-900), var(--red);
+    @mixin theme-border-colors rgba(var(--gray-700-rgb), .75), var(--red);
+    border-radius: 3px;
+    line-height: 100%;
+  }
+
+  .external-link:hover {
+    @mixin theme-border-colors var(--gray-700-rgb), var(--red);
+  }
+
+</style>

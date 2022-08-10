@@ -1,5 +1,5 @@
 ---
-import ProjectIcon from "./ProjectIcon.astro";
+import ProjectIcon from "../UI/ProjectIcon.astro";
 
 const { projectUrl, title, icon, sourceUrl, liveUrl } = Astro.props;
 ---
@@ -11,13 +11,13 @@ const { projectUrl, title, icon, sourceUrl, liveUrl } = Astro.props;
     </span>
     <h3>{title}</h3>
   </a>
-  <a class="external-link" href={sourceUrl}>Source</a>
+  <a class="external-link" href={`https://github.com/${sourceUrl}`}>Source</a>
   <a class="external-link" href={liveUrl}>Live</a>
 </li>
 
 
 <style>
-  @import "../../styles/mixins.css";
+  @import "../../styles/mixins/mixins.css";
 
   .project {
     display: grid;

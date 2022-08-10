@@ -1,10 +1,10 @@
 ---
 layout: ../../layouts/ArticleLayout.astro
-title: Flexible Sizing in CSS
+title: Fluid sizing using CSS clamp
 description: Within that broad spectrum the wavelengths visible to humans occupy a very narrow band.
 date: 03 Jan 2022
 tags:
-  - css
+  - CSS
 ---
 
 Light, electromagnetic radiation that can be detected by the human eye. **Electromagnetic radiation** occurs over an extremely wide range of wavelengths, from gamma rays with wavelengths less than about 1 × 10−11 metre to radio waves measured in metres. Within that broad spectrum the wavelengths visible to humans occupy a very narrow band, from about 700 nanometres (nm; billionths of a metre) for red light down to about 400 nm for violet light.

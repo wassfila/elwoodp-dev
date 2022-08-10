@@ -4,23 +4,20 @@ title: Tidying Tailwind
 description: I like many things about Tailwind, and the utility-first CSS approach but one of the obvious criticisms is how unwieldy it looks in your HTML.
 date: 02 Jan 2022
 tags:
-  - css
+  - CSS
 ---
 
 I like many things about Tailwind, and the utility-first CSS approach but one of the obvious criticisms is how unwieldy it looks in your HTML. The mental overhead of processing something like this can be a lot of work:
 
-```js
-const btn = document.getElementById(‘btn’);
-let count = 0;
-
-function render() {
-  btn.innerText = `Count: ${count}`;
-}
+```html
+<div class="flex items-center justify-between mx-2 font-medium text-white relative bg-black border border-indigo">
 ```
 
-There are some existing solutions out there. Tailwind itself has a [Prettier plugin](https://tailwindcss.com/blog/automatic-class-sorting-with-prettier) for sorting classes according to the order it writes them in the final CSS. There is also [Headwind](https://tailwindcss.com/blog/automatic-class-sorting-with-prettier), a plugin for VSCode that also automatically sorts classes.
+There are some existing solutions out there. Tailwind itself has a [Prettier plugin](https://tailwindcss.com/blog/automatic-class-sorting-with-prettier) for sorting classes matching the order it writes them in the final CSS. There is also [Headwind](https://tailwindcss.com/blog/automatic-class-sorting-with-prettier), a plugin for VSCode that also automatically sorts the classes.
 
 It's a start, but these plugins both still produce one long list of classes. I’m not a fan of the ordering chosen by the plugins either. Tailwind’s own ordering in particular makes no logical sense to me. My solution to add readability is to also add groupings to the classes.
+
+## Ordering & Grouping
 
 So the the first job is to define a logical order for ordering css properties by group. Here’s my preference:
 
@@ -33,16 +30,18 @@ So the the first job is to define a logical order for ordering css properties by
 - Typography
 - Anything else (e.g. cursor: pointer)
 
-Now to group the properties I use a divider character (browsers just ignore these superfluous characters). I’ve experimented using a pipe and forward slash but settled on square brackets inspired by the formatting used by [Cube CSS](https://cube.fyi/). So the example above becomes:
+To group the properties I use a divider character (browsers ignore any arbitrary characters). I’m using a forward slash here although I've also experimented using square brackets inspired by the formatting used by [Cube CSS](https://cube.fyi/). So the example above becomes:
 
 ```html
-<div class="[ relative ][ flex items-center justify-between ][ mx-2 border-2 ][ border-indigo bg-black ][ font-medium text-white ]">
+<div class="relative / flex items-center justify-between / mx-2 border-2 / border-indigo bg-black / font-medium text-white">
 ```
 
-Media queries and pseudo classes just slot in where they belong in the order defined above.
+## Media Queries
+
+Media queries and pseudo classes just slot in with their selector counterparts where they belong in the order defined above.
 
 ```html
-<div class="[ relative ][ flex items-center justify-between ][ mx-2 md:mx-3 lg:mx-4 border-2 ][ border-indigo bg-black hover:bg-indigo ][ font-medium text-white ]">
+<div class="relative / flex items-center justify-between / mx-2 md:mx-3 lg:mx-4 border-2 / border-indigo bg-black hover:bg-indigo / font-medium text-white">
 ```
 
-No doubt this still won’t please the many Tailwind haters out there but I find it a distinct improvement and much more pleasant to work with.
+No doubt this won’t convert you if you’ve made up your mind that you don’t like Tailwind (there are some [strong opinions](https://www.aleksandrhovhannisyan.com/blog/why-i-dont-like-tailwind-css/) out there!). But I find this way of writing a big improvement and goes a long way to alleviating one of Tailwind’s biggest problems.

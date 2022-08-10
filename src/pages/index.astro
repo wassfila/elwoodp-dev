@@ -20,18 +20,19 @@ import PageList from '../components/PageList/PageList.astro';
 </SiteLayout>
 
 <style>
-	@import "../styles/mixins.css";
+	@import "../styles/mixins/mixins.css";
 
 	.hero {
 		display: flex;
 		flex-direction: column;
 		gap: 1.5rem;
-		padding-bottom: 2rem;
+		/* padding-bottom: 2rem; */
 	}
 
 	h1 {
-		font-size: 4.125rem;
-		line-height: 105%;
+		/* font-size: 4.125rem; */
+		@mixin fluid-font-size 2.75, 3.75;
+		line-height: 110%;
 		letter-spacing: -0.1rem;
 		@mixin theme-colors var(--gray-50), var(--gray-800);
 		@mixin theme-font-weights 700, 775;
@@ -39,7 +40,8 @@ import PageList from '../components/PageList/PageList.astro';
 
 	p {
 		align-self: flex-end;
-		font-size: 1.375rem;
+		/* font-size: 1.375rem; */
+		@mixin fluid-font-size 1.125, 1.375;
 		line-height: 160%;
 	}
 

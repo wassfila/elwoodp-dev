@@ -26,7 +26,7 @@ articles.sort((a, b) => new Date(b.frontmatter.date) - new Date(a.frontmatter.da
 
 
 <style>
-  @import "../../styles/mixins.css";
+  @import "../../styles/mixins/mixins.css";
   
   header {
     position: relative;
@@ -37,7 +37,7 @@ articles.sort((a, b) => new Date(b.frontmatter.date) - new Date(a.frontmatter.da
     padding-bottom: 1.25rem;
     margin-bottom: 1.25rem;
     border-bottom: 1px solid;
-    @mixin theme-border-colors var(--gray-700), var(--gray-300);
+    @mixin theme-border-colors rgba(var(--gray-700-rgb), 0.35), rgba(var(--gray-500-rgb), 0.25);
   }
 
   h2 {
