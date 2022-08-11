@@ -1,8 +1,9 @@
 ---
+import PageListHeader from './PageListHeader.astro';
 import ProjectListItem from './ProjectListItem.astro';
 import ArticleListItem from './ArticleListItem.astro';
 
-const { type, title, maxNumber } = Astro.props;
+const { type, title, maxNumber, displayHeader } = Astro.props;
 const projects = await Astro.glob('../../pages/projects/*.md');
 const articles = await Astro.glob('../../pages/articles/*.md');
 // Order both by date
@@ -11,9 +12,7 @@ articles.sort((a, b) => new Date(b.frontmatter.date) - new Date(a.frontmatter.da
 ---
 
 <section>
-  <header>
-    <h2>{title}</h2><a href={`/${type}`}>View All</a>
-  </header>
+  { displayHeader && <PageListHeader title={title} type={type} /> }
   <ul>
     {(type === 'projects') && projects.slice(0, maxNumber).map((project) => (
     <ProjectListItem projectUrl={project.url} {...project.frontmatter} />
@@ -27,34 +26,6 @@ articles.sort((a, b) => new Date(b.frontmatter.date) - new Date(a.frontmatter.da
 
 <style>
   @import "../../styles/mixins/mixins-scoped.css";
-  
-  header {
-    position: relative;
-    display: grid;
-    grid-template-columns: 1fr max-content;
-    align-items: end;
-    gap: 1rem;
-    padding-bottom: 1.25rem;
-    margin-bottom: 1.25rem;
-    border-bottom: 1px solid;
-    @mixin theme-border-colors rgba(var(--gray-700-rgb), 0.35), rgba(var(--gray-500-rgb), 0.25);
-  }
-
-  h2 {
-    font-weight: 600;
-    font-size: 1.75rem;
-    line-height: 1;
-    @mixin theme-colors var(--gray-50), var(--gray-800);
-  }
-
-  header a {
-    font-weight: 600;
-    line-height: 1;
-    @mixin theme-colors var(--gray-50), var(--gray-800);
-    &:hover {
-      text-decoration: underline;
-    }
-  }
 
   /* Common styling for child elements */
   section :global(li:is(.project, .article)) {

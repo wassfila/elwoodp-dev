@@ -1,0 +1,39 @@
+---
+const { title, type } = Astro.props;
+---
+
+<header>
+  <h2>{title}</h2><a href={`/${type}`}>View All</a>
+</header>
+
+<style>
+  @import "../../styles/mixins/mixins-scoped.css";
+  
+  header {
+    position: relative;
+    display: grid;
+    grid-template-columns: 1fr max-content;
+    align-items: end;
+    gap: 1rem;
+    padding-bottom: 1.25rem;
+    margin-bottom: 1.25rem;
+    border-bottom: 1px solid;
+    @mixin theme-border-colors rgba(var(--gray-700-rgb), 0.35), rgba(var(--gray-500-rgb), 0.25);
+  }
+
+  h2 {
+    font-weight: 600;
+    font-size: 1.75rem;
+    line-height: 1;
+    @mixin theme-colors var(--gray-50), var(--gray-800);
+  }
+
+  header a {
+    font-weight: 600;
+    line-height: 1;
+    @mixin theme-colors var(--gray-50), var(--gray-800);
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+</style>

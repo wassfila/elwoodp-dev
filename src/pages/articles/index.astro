@@ -1,14 +1,14 @@
 ---
 import SiteLayout from '@layouts/SiteLayout.astro';
 import Container from '@components/UI/Container.astro';
-import JustHeadingHero from '@components/Heros/JustHeadingHero.astro';
+import HeadingHero from '@components/Heros/HeadingHero.astro';
 import PageList from '@components/PageList/PageList.astro';
 
 ---
 
 <SiteLayout>
   <Container>
-    <JustHeadingHero title="Articles" />
-    <PageList type="articles" title="Articles" />
+    <HeadingHero title="Articles" />
+    <PageList type="articles" title="Articles" displayHeader={false} />
   </Container>
 </SiteLayout>
