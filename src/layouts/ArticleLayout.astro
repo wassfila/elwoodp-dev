@@ -1,7 +1,7 @@
 ---
 import SiteLayout from "@layouts/SiteLayout.astro";
 import Container from "@components/UI/Container.astro";
-import HeroArticle from "@components/Heros/HeroArticle.astro";
+import ArticleHero from "@components/Heros/ArticleHero.astro";
 import '@styles/prism.css';
 import "@styles/article.css";
 
@@ -10,7 +10,7 @@ const { content } = Astro.props;
 
 <SiteLayout title={content.title} description={content.description}>
   <Container maxWidth="650px">
-    <HeroArticle title={content.title} />
+    <ArticleHero title={content.title} />
     <article>
       <slot />
     </article>

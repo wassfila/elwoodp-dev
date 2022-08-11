@@ -1,7 +1,7 @@
 ---
 import SiteLayout from "@layouts/SiteLayout.astro";
 import Container from "@components/UI/Container.astro";
-import HeroProject from "@components/Heros/HeroProject.astro";
+import ProjectHero from "@components/Heros/ProjectHero.astro";
 import Markdown from '@astrojs/markdown-component';
 import "@styles/article.css";
 
@@ -13,7 +13,7 @@ const readme = await response.text();
 
 <SiteLayout title={content.title} description={content.description}>
   <Container>
-    <HeroProject content={content} />
+    <ProjectHero content={content} />
     <article>
       <Markdown content={readme} />
     </article>

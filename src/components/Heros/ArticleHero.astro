@@ -1,0 +1,25 @@
+---
+import HeroHeading from "./HeroHeading.astro";
+
+const { title } = Astro.props;
+---
+
+<header>
+  <HeroHeading title={title} />
+  <div class="meta">Meta Stuff</div>
+</header>
+
+<style>
+  @import "../../styles/mixins/mixins-scoped.css";
+
+  header {
+    display: flex;
+    flex-direction: column;
+    @mixin fluid-gap 2, 2.5;
+    align-items: center;
+  }
+
+  .meta {
+
+  }
+</style>

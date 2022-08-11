@@ -1,5 +1,6 @@
 ---
 import ProjectIcon from "@components/UI/ProjectIcon.astro";
+import HeroHeading from "./HeroHeading.astro";
 
 const { content } = Astro.props;
 ---
@@ -9,7 +10,7 @@ const { content } = Astro.props;
   <span class="icon">
     <ProjectIcon icon={content.icon} />
   </span>
-  <h1>{content.title}</h1>
+  <HeroHeading title={content.title} />
   <div class="external-links">
     <a class="external-link" href={`https://github.com/${content.sourceUrl}`}>Source</a>
     <a class="external-link" href={content.liveUrl}>Live</a>
@@ -25,15 +26,6 @@ const { content } = Astro.props;
     flex-direction: column;
     @mixin fluid-gap 2, 2.5;
     align-items: center;
-  }
-
-  h1 {
-    @mixin theme-colors var(--gray-50), var(--gray-800);
-    @mixin theme-font-weights 700, 775;
-    @mixin fluid-font-size 2.75, 4;
-    line-height: 110%;
-    letter-spacing: -0.1rem;
-    text-align: center;
   }
 
   .icon :global(svg) {
