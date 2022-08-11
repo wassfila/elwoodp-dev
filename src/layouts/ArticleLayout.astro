@@ -1,33 +1,18 @@
 ---
-import SiteLayout from "./SiteLayout.astro";
-import Container from "../components/UI/Container.astro";
-import '../styles/prism.css';
-import { Markdown } from 'astro/components';
+import SiteLayout from "@layouts/SiteLayout.astro";
+import Container from "@components/UI/Container.astro";
+import HeroArticle from "@components/Heros/HeroArticle.astro";
+import '@styles/prism.css';
+import "@styles/article.css";
 
 const { content } = Astro.props;
 ---
 
 <SiteLayout title={content.title} description={content.description}>
   <Container maxWidth="650px">
-    <header>
-      <h1>{content.title}</h1>
-    </header>
+    <HeroArticle title={content.title} />
     <article>
       <slot />
     </article>
   </Container>
 </SiteLayout>
-
-<style>
-  @import "../styles/mixins/mixins.css";
-  @import "../styles/article.css";
-
-  h1 {
-    @mixin theme-colors var(--gray-50), var(--gray-800);
-    @mixin theme-font-weights 700, 775;
-    @mixin fluid-font-size 2.75, 4;
-    line-height: 110%;
-    letter-spacing: -0.1rem;
-    text-align: center;
-  }
-</style>

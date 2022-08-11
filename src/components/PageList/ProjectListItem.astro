@@ -1,5 +1,5 @@
 ---
-import ProjectIcon from "../UI/ProjectIcon.astro";
+import ProjectIcon from "@components/UI/ProjectIcon.astro";
 
 const { projectUrl, title, icon, sourceUrl, liveUrl } = Astro.props;
 ---
@@ -17,7 +17,7 @@ const { projectUrl, title, icon, sourceUrl, liveUrl } = Astro.props;
 
 
 <style>
-  @import "../../styles/mixins/mixins.css";
+  @import "../../styles/mixins/mixins-scoped.css";
 
   .project {
     display: grid;

@@ -1,6 +1,6 @@
 ---
-import IconSun from '../assets/icons/icon-sun.astro';
-import IconMoon from '../assets/icons/icon-moon.astro';
+import IconSun from '@assets/icons/icon-sun.astro';
+import IconMoon from '@assets/icons/icon-moon.astro';
 ---
 
 <button id="theme-toggle" data-toggle-theme="light,dark" data-act-class="active">
@@ -14,7 +14,7 @@ import IconMoon from '../assets/icons/icon-moon.astro';
 
 
 <style>
-  @import "../styles/mixins/mixins.css";
+  @import "../../styles/mixins/mixins-scoped.css";
 
   button {
     display: flex;

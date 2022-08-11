@@ -1,0 +1,61 @@
+---
+import ProjectIcon from "@components/UI/ProjectIcon.astro";
+
+const { content } = Astro.props;
+---
+
+
+<header>
+  <span class="icon">
+    <ProjectIcon icon={content.icon} />
+  </span>
+  <h1>{content.title}</h1>
+  <div class="external-links">
+    <a class="external-link" href={`https://github.com/${content.sourceUrl}`}>Source</a>
+    <a class="external-link" href={content.liveUrl}>Live</a>
+  </div>
+</header>
+
+
+<style>
+  @import "../../styles/mixins/mixins-scoped.css";
+
+  header {
+    display: flex;
+    flex-direction: column;
+    @mixin fluid-gap 2, 2.5;
+    align-items: center;
+  }
+
+  h1 {
+    @mixin theme-colors var(--gray-50), var(--gray-800);
+    @mixin theme-font-weights 700, 775;
+    @mixin fluid-font-size 2.75, 4;
+    line-height: 110%;
+    letter-spacing: -0.1rem;
+    text-align: center;
+  }
+
+  .icon :global(svg) {
+    @mixin fluid-width 5.625, 7;
+    @mixin fluid-height 5.625, 7;
+  }
+
+  .external-links {
+    display: flex;
+    gap: 1rem;
+  }
+
+  .external-link {
+    padding: 4px 8px;
+    border: 1px solid;
+    @mixin theme-background-colors var(--gray-900), var(--red);
+    @mixin theme-border-colors rgba(var(--gray-700-rgb), .75), var(--red);
+    border-radius: 3px;
+    line-height: 100%;
+  }
+
+  .external-link:hover {
+    @mixin theme-border-colors var(--gray-600), var(--red);
+  }
+</style>
