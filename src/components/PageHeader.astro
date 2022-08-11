@@ -5,7 +5,7 @@ import IconMenu from '../assets/icons/icon-menu.astro';
 
 <header>
   <nav>
-    <ul id="header-menu__list" class="hidden">
+    <ul id="header-menu__list">
       <li><a href="/">Home</a></li>
       <li><a href="/about/">About</a></li>
       <li><a href="/projects/">Projects</a></li>
@@ -40,7 +40,7 @@ import IconMenu from '../assets/icons/icon-menu.astro';
   }
 
   a:hover {
-    @mixin theme-colors var(--gray-50), var(--gray-950);
+    text-decoration: underline;
   }
 
   button {
@@ -50,6 +50,15 @@ import IconMenu from '../assets/icons/icon-menu.astro';
     }
   }
 
+  @media (min-width: 768px) {
+    #header-menu__toggle {
+      display: none;
+    }
+    #header-menu__list {
+      display: flex !important;
+    } 
+  }
+    
   .hidden {
     display: none !important;
   }

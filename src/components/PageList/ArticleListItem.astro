@@ -27,7 +27,7 @@ const { articleUrl, title, tags, date } = Astro.props;
 
     &:hover h3 {
       text-decoration: underline;
-      @mixin theme-colors #fff, var(--gray-950);
+      /* @mixin theme-colors #fff, var(--gray-950); */
     }
   }
 
@@ -46,14 +46,13 @@ const { articleUrl, title, tags, date } = Astro.props;
     display: flex;
     align-items: center;
     justify-content: center;
-    padding: 3px 4px;
+    padding: 3px 6px;
     font-size: 0.8125rem;
     line-height: 1;
-    border-radius: 3px;
-    border: 1px solid;
-    @mixin theme-background-colors var(--gray-900), var(--red);
-    @mixin theme-border-colors rgba(var(--gray-700-rgb), .35), var(--red);
-    @mixin theme-colors var(--gray-600), var(--red);
+    border-radius: 4px;
+    @mixin theme-background-colors rgba(var(--gray-700-rgb), .25), var(--red);
+    /* @mixin theme-border-colors rgba(var(--gray-700-rgb), .35), var(--red); */
+    @mixin theme-colors rgba(var(--gray-300-rgb), .5), var(--red);
   }
 
   date {
