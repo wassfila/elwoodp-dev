@@ -15,10 +15,11 @@ article a {
 
 article blockquote {
   @mixin fluid-padding 1, 1.5;
-  @mixin theme-background-colors var(--gray-925) !important, var(--gray-900) !important;
+  @mixin theme-background-colors var(--gray-925), var(--gray-100);
   white-space: normal;
   border-radius: 8px;
-  border-left: 8px solid var(--gray-700);
+  border-left: 8px solid;
+  @mixin theme-border-colors var(--gray-700), var(--gray-200);
 }
 
 

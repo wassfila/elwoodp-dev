@@ -33,7 +33,7 @@ articles.sort((a, b) => new Date(b.frontmatter.date) - new Date(a.frontmatter.da
     padding-inline: 1rem;
     border-radius: 8px;
     &:hover {
-      @mixin theme-background-colors rgba(var(--gray-925-rgb), .8), var(--gray-100);
+      @mixin theme-background-colors rgba(var(--gray-925-rgb), .8), rgba(var(--gray-100-rgb), .75);
     }
   }
   section :global(li:is(.project, .article) a) {
