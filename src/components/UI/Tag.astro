@@ -1,0 +1,23 @@
+---
+  const { tag } = Astro.props;
+---
+
+<li class="tag">{tag}</li>
+
+
+<style>
+  @import "../../styles/mixins/mixins-scoped.css";
+
+  .tag {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 3px 6px;
+    font-size: 0.8125rem;
+    line-height: 1;
+    border-radius: 4px;
+    @mixin theme-background-colors rgba(var(--gray-700-rgb), .25), var(--red);
+    /* @mixin theme-border-colors rgba(var(--gray-700-rgb), .35), var(--red); */
+    @mixin theme-colors rgba(var(--gray-300-rgb), .5), var(--red);
+  }
+</style>

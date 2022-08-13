@@ -1,4 +1,6 @@
 ---
+import Tag from "@components/UI/Tag.astro";
+
 const { articleUrl, title, tags, date } = Astro.props;
 ---
 
@@ -6,9 +8,9 @@ const { articleUrl, title, tags, date } = Astro.props;
   <a class="title-link" href={articleUrl}>
     <header>
       <h3>{title}</h3>
-      <ul class="tags">
+      <ul class="tag-list">
         { tags.map((tag) => (
-        <li class="tag">{tag}</li>
+          <Tag tag={tag} />
         ))}
       </ul>
     </header>
@@ -27,7 +29,6 @@ const { articleUrl, title, tags, date } = Astro.props;
 
     &:hover h3 {
       text-decoration: underline;
-      /* @mixin theme-colors #fff, var(--gray-950); */
     }
   }
 
@@ -36,23 +37,13 @@ const { articleUrl, title, tags, date } = Astro.props;
     gap: 2rem;
   }
 
-  .tags {
+  .tag-list {
     display: flex;
     align-items: center;
     gap: .75rem;
-  }
-
-  .tag {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 3px 6px;
-    font-size: 0.8125rem;
-    line-height: 1;
-    border-radius: 4px;
-    @mixin theme-background-colors rgba(var(--gray-700-rgb), .25), var(--red);
-    /* @mixin theme-border-colors rgba(var(--gray-700-rgb), .35), var(--red); */
-    @mixin theme-colors rgba(var(--gray-300-rgb), .5), var(--red);
+    @media (max-width: 700px) {
+      display: none;
+    }
   }
 
   date {
