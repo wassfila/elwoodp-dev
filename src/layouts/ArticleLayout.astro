@@ -10,7 +10,7 @@ const { content } = Astro.props;
 
 <SiteLayout title={content.title} description={content.description}>
   <Container maxWidth="650px">
-    <ArticleHero title={content.title} />
+    <ArticleHero title={content.title} date={content.date} tags={content.tags} />
     <article>
       <slot />
     </article>

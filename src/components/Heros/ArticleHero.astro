@@ -1,12 +1,20 @@
 ---
 import HeroHeading from "./HeroHeading.astro";
+import Tag from "@components/UI/Tag.astro";
 
-const { title } = Astro.props;
+const { title, date, tags } = Astro.props;
 ---
 
 <header>
   <HeroHeading title={title} />
-  <div class="meta">Meta Stuff</div>
+  <div class="meta">
+    <date>{date}</date>
+    <ul class="tag-list">
+      { tags.map((tag) => (
+        <Tag tag={tag} />
+      ))}
+    </ul>
+  </div>
 </header>
 
 <style>
@@ -20,6 +28,16 @@ const { title } = Astro.props;
   }
 
   .meta {
+    display: flex;
+    gap: 2rem;
+  }
 
+  .tag-list {
+    display: flex;
+    align-items: center;
+    gap: .75rem;
+    @media (max-width: 700px) {
+      display: none;
+    }
   }
 </style>
