@@ -25,7 +25,7 @@ const { articleUrl, title, tags, date } = Astro.props;
   .title-link {
     display: grid;
     grid-template-columns: 1fr max-content;
-    gap: 1.5rem;
+    column-gap: 1.5rem;
 
     &:hover h3 {
       text-decoration: underline;
@@ -48,5 +48,13 @@ const { articleUrl, title, tags, date } = Astro.props;
 
   date {
     font-size: 0.875rem;
+  }
+
+  /* Cleanup on small mobile */
+  @media (max-width: 413px) {
+    .title-link {
+      grid-template-columns: 1fr;
+    }
+
   }
 </style>

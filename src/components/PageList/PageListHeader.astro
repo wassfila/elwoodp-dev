@@ -36,4 +36,12 @@ const { title, type } = Astro.props;
       text-decoration: underline;
     }
   }
+
+  /* Cleanup on small mobile */
+  @media (max-width: 413px) {
+    header a {
+      display: none;
+    }
+  }
+  
 </style>

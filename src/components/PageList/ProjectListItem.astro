@@ -22,7 +22,7 @@ const { projectUrl, title, icon, sourceUrl, liveUrl } = Astro.props;
   .project {
     display: grid;
     grid-template-columns: 1fr max-content max-content;
-    gap: 2rem;
+    column-gap: 2rem;
   }
 
   .title-link {
@@ -41,4 +41,17 @@ const { projectUrl, title, icon, sourceUrl, liveUrl } = Astro.props;
       text-decoration: underline;
     }
   }
+
+  /* Cleanup on small mobile */
+  @media (max-width: 413px) {
+    .project {
+      grid-template-columns: 1fr;
+    }
+
+    .external-link {
+      display: none;
+    }
+  }
+
+
 </style>
