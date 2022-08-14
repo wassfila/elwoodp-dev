@@ -1,0 +1,19 @@
+---
+import SiteLayout from '@layouts/SiteLayout.astro';
+import Container from '@components/UI/Container.astro';
+import HeadingHero from '@components/Heros/HeadingHero.astro';
+import '@styles/prism.css';
+import "@styles/article.css";
+
+const { content } = Astro.props;
+console.log(Astro.props);
+---
+
+<SiteLayout title={content.title} description={content.description}>
+  <Container maxWidth="650px">
+      <HeadingHero title={content.title} />
+      <article>
+        <slot />
+      </article>
+  </Container>
+</SiteLayout>

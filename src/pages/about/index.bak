@@ -1,0 +1,16 @@
+---
+import SiteLayout from '../../layouts/SiteLayout.astro';
+import Container from '../../components/UI/Container.astro';
+import HeadingHero from '@components/Heros/HeadingHero.astro';
+
+import "@styles/article.css";
+---
+
+<SiteLayout title="About" description="About elwoodp.dev">
+	<Container maxWidth="650px">
+			<HeadingHero title="About" />
+			<article>
+				Hello
+			</article>
+	</Container>
+</SiteLayout>
