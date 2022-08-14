@@ -68,6 +68,13 @@ $max-vw: 760;
   padding: clamp(calc($min-size * 1rem), $target, calc($max-size * 1rem));
 }
 
+@define-mixin fluid-padding-block $min-size, $max-size {
+  $target: calc(
+    ($min-size * 1rem) + ($max-size - $min-size) * ((100vw - (($min-vw / 16 ) * 1rem)) / (($max-vw - $min-vw) / 16))
+  );
+  padding-block: clamp(calc($min-size * 1rem), $target, calc($max-size * 1rem));
+}
+
 @define-mixin fluid-padding-inline $min-size, $max-size {
   $target: calc(
     ($min-size * 1rem) + ($max-size - $min-size) * ((100vw - (($min-vw / 16 ) * 1rem)) / (($max-vw - $min-vw) / 16))
