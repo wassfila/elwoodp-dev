@@ -19,7 +19,7 @@ const { content } = Astro.props;
 
 
 <style>
-  @import "../../styles/mixins/mixins-scoped.css";
+  @import "../../styles/mixins/mixins.css";
 
   header {
     display: flex;
@@ -41,12 +41,12 @@ const { content } = Astro.props;
   .external-link {
     padding: 4px 8px;
     border: 1px solid;
-    @mixin theme-border-colors rgba(var(--gray-700-rgb), .75), var(--gray-200);
+    @mixin theme border-color, rgba(var(--gray-700-rgb), .75), var(--gray-200);
     border-radius: 3px;
     line-height: 100%;
   }
 
   .external-link:hover {
-    @mixin theme-border-colors var(--gray-600), rgba(var(--gray-600-rgb), .6);
+    @mixin theme border-color, var(--gray-600), rgba(var(--gray-600-rgb), .6);
   }
 </style>

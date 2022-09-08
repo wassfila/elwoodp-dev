@@ -5,11 +5,11 @@ const { title } = Astro.props;
 <h1>{title}</h1>
 
 <style>
-  @import "../../styles/mixins/mixins-scoped.css";
+  @import "../../styles/mixins/mixins.css";
 
   h1 {
-    @mixin theme-colors var(--gray-50), var(--gray-800);
-    @mixin theme-font-weights 700, 775;
+    @mixin theme color, var(--gray-50), var(--gray-800);
+    @mixin theme font-weight, 700, 775;
     @mixin fluid-font-size 2.75, 4;
     line-height: 110%;
     letter-spacing: -0.1rem;

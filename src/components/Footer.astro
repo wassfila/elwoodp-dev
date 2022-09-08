@@ -1,7 +1,7 @@
 ---
-import IconAstro from "@assets/icons/icon-astro.astro";
-import IconGithub from "@assets/icons/icon-github.astro";
-import IconNetlify from "@assets/icons/icon-netlify.astro";
+import IconAstro from '@assets/icons/icon-astro.astro';
+import IconGithub from '@assets/icons/icon-github.astro';
+import IconNetlify from '@assets/icons/icon-netlify.astro';
 ---
 
 <footer>
@@ -14,15 +14,15 @@ import IconNetlify from "@assets/icons/icon-netlify.astro";
 </footer>
 
 <style>
-  @import "../styles/mixins/mixins-scoped.css";
+  @import '../styles/mixins/mixins.css';
 
   footer {
-    display:flex;
+    display: flex;
     flex-direction: column;
     align-items: center;
-    gap: .625rem;
+    gap: 0.625rem;
     @mixin fluid-padding-block 3.5, 4.5;
-    @mixin theme-colors var(--gray-500), var(--gray-700);
+    @mixin theme color, var(--gray-500), var(--gray-700);
     font-size: 0.875rem;
   }
 
@@ -33,7 +33,7 @@ import IconNetlify from "@assets/icons/icon-netlify.astro";
 
   a {
     display: flex;
-    gap: .25rem;
+    gap: 0.25rem;
     align-items: center;
     line-height: 1;
     &:hover {
@@ -42,6 +42,6 @@ import IconNetlify from "@assets/icons/icon-netlify.astro";
   }
 
   .icon {
-    @mixin theme-colors var(--gray-500), var(--gray-800);
+    @mixin theme color, var(--gray-500), var(--gray-800);
   }
 </style>

@@ -14,7 +14,7 @@ import IconMoon from '@assets/icons/icon-moon.astro';
 
 
 <style>
-  @import "../../styles/mixins/mixins-scoped.css";
+  @import "../../styles/mixins/mixins.css";
 
   button {
     display: flex;
@@ -35,13 +35,13 @@ import IconMoon from '@assets/icons/icon-moon.astro';
   }
   
   .icon-moon {
-    @mixin theme-background-colors #fff, transparent;
-    @mixin theme-colors var(--gray-925), var(--gray-600);
+    @mixin theme background-color, #fff, transparent;
+    @mixin theme color, var(--gray-925), var(--gray-600);
   }
 
   .icon-sun {
-    @mixin theme-background-colors transparent, #fff;
-    @mixin theme-colors var(--gray-600), var(--gray-925);
+    @mixin theme background-color, transparent, #fff;
+    @mixin theme color, var(--gray-600), var(--gray-925);
   }
 </style>
 
