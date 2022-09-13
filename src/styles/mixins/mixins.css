@@ -20,51 +20,9 @@
 $min-vw: 400;
 $max-vw: 760;
 
-@define-mixin fluid-font-size $min-size, $max-size {
-  $target-font-size: calc(
-    ($min-size * 1rem) + ($max-size - $min-size) * ((100vw - (($min-vw / 16 ) * 1rem)) / (($max-vw - $min-vw) / 16))
+@define-mixin fluid $property, $min-value, $max-value {
+  $target-value: calc(
+    ($min-value * 1rem) + ($max-value - $min-value) * ((100vw - (($min-vw / 16 ) * 1rem)) / (($max-vw - $min-vw) / 16))
   );
-  font-size: clamp(calc($min-size * 1rem), $target-font-size, calc($max-size * 1rem));
-}
-
-@define-mixin fluid-gap $min-size, $max-size {
-  $target-gap: calc(
-    ($min-size * 1rem) + ($max-size - $min-size) * ((100vw - (($min-vw / 16 ) * 1rem)) / (($max-vw - $min-vw) / 16))
-  );
-  gap: clamp(calc($min-size * 1rem), $target-gap, calc($max-size * 1rem));
-}
-
-@define-mixin fluid-padding $min-size, $max-size {
-  $target: calc(
-    ($min-size * 1rem) + ($max-size - $min-size) * ((100vw - (($min-vw / 16 ) * 1rem)) / (($max-vw - $min-vw) / 16))
-  );
-  padding: clamp(calc($min-size * 1rem), $target, calc($max-size * 1rem));
-}
-
-@define-mixin fluid-padding-block $min-size, $max-size {
-  $target: calc(
-    ($min-size * 1rem) + ($max-size - $min-size) * ((100vw - (($min-vw / 16 ) * 1rem)) / (($max-vw - $min-vw) / 16))
-  );
-  padding-block: clamp(calc($min-size * 1rem), $target, calc($max-size * 1rem));
-}
-
-@define-mixin fluid-padding-inline $min-size, $max-size {
-  $target: calc(
-    ($min-size * 1rem) + ($max-size - $min-size) * ((100vw - (($min-vw / 16 ) * 1rem)) / (($max-vw - $min-vw) / 16))
-  );
-  padding-inline: clamp(calc($min-size * 1rem), $target, calc($max-size * 1rem));
-}
-
-@define-mixin fluid-width $min-size, $max-size {
-  $target: calc(
-    ($min-size * 1rem) + ($max-size - $min-size) * ((100vw - (($min-vw / 16 ) * 1rem)) / (($max-vw - $min-vw) / 16))
-  );
-  width: clamp(calc($min-size * 1rem), $target, calc($max-size * 1rem));
-}
-
-@define-mixin fluid-height $min-size, $max-size {
-  $target: calc(
-    ($min-size * 1rem) + ($max-size - $min-size) * ((100vw - (($min-vw / 16 ) * 1rem)) / (($max-vw - $min-vw) / 16))
-  );
-  height: clamp(calc($min-size * 1rem), $target, calc($max-size * 1rem));
+  $(property): clamp(calc($min-value * 1rem), $target-value, calc($max-value * 1rem));
 }

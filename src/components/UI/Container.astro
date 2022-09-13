@@ -15,12 +15,12 @@ const { maxWidth } = Astro.props;
   .container {
     display: flex;
     flex-direction: column;
-    @mixin fluid-gap 5, 7.5;
+    @mixin fluid gap, 5, 7.5;
     margin-inline: auto;
     width: min(100%, 760px);
   }
 
   .wrapper {
-    @mixin fluid-padding-inline 1.25, 3;
+    @mixin fluid padding-inline, 1.25, 3;
   }
 </style>

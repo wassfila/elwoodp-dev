@@ -2,14 +2,13 @@
   <slot />
 </article>
 
-
 <style>
   @import '../../styles/mixins/mixins.css';
 
   article {
     display: grid;
-    @mixin fluid-gap 2, 2.5;
-    @mixin fluid-font-size 1, 1.125;
+    @mixin fluid gap, 2, 2.5;
+    @mixin fluid font-size, 1, 1.125;
   }
 
   article :global(a) {
@@ -20,7 +19,7 @@
   }
 
   article :global(blockquote) {
-    @mixin fluid-padding 1, 1.5;
+    @mixin fluid padding, 1, 1.5;
     @mixin theme background-color, var(--gray-925), var(--gray-100);
     white-space: normal;
     border-radius: 8px;
@@ -31,17 +30,18 @@
   /* Code Block (Prism) */
 
   article :global(pre) {
-    @mixin fluid-padding 1, 1.5;
+    @mixin fluid padding, 1, 1.5;
     @mixin theme background-color, var(--gray-925) !important, var(--gray-900) !important;
     white-space: normal;
     border-radius: 8px;
   }
 
   article :global(code) {
-    @mixin fluid-font-size 0.875, 1;
+    @mixin fluid font-size, 0.875, 1;
   }
 
   /* Headings  */
+  
   article :global(h1) {
     display: none;
   }
@@ -58,13 +58,13 @@
   }
 
   article :global(h2) {
-    @mixin fluid-font-size 1.75, 2.25;
-    /* @mixin fluid-font-size 1.5, 2; */
+    @mixin fluid font-size, 1.75, 2.25;
+    /* @mixin fluid font-size, 1.5, 2; */
     line-height: 130%;
   }
 
   article :global(h3) {
-    @mixin fluid-font-size 1.5, 2;
+    @mixin fluid font-size, 1.5, 2;
     line-height: 130%;
   }
 

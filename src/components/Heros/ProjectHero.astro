@@ -24,13 +24,13 @@ const { content } = Astro.props;
   header {
     display: flex;
     flex-direction: column;
-    @mixin fluid-gap 2, 2.5;
+    @mixin fluid gap, 2, 2.5;
     align-items: center;
   }
 
   .icon :global(svg) {
-    @mixin fluid-width 5.625, 7;
-    @mixin fluid-height 5.625, 7;
+    @mixin fluid width, 5.625, 7;
+    @mixin fluid height, 5.625, 7;
   }
 
   .external-links {

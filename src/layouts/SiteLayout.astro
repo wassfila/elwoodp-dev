@@ -23,7 +23,7 @@ const { title, description } = Astro.props;
   body {
     display: flex;
     flex-direction: column;
-    @mixin fluid-gap 5, 7.5;
+    @mixin fluid gap, 5, 7.5;
     @mixin theme background-color, var(--gray-900), rgba(var(--gray-50-rgb), .75);
     @mixin theme color, var(--gray-300), var(--gray-700);
     font-family: 'Inter', sans-serif;
