@@ -1,7 +1,4 @@
-/* ==========================================================================
-   Theme Mixins 
-   ========================================================================== */
-
+/* Theme Mixin */
 @define-mixin theme $property, $dark-value, $light-value {
   :global([data-theme='dark']) & {
     $(property): $dark-value;
@@ -11,18 +8,18 @@
   }
 }
 
-
-/* ==========================================================================
-   Fluid Mixins 
-   ========================================================================== */
-
+/* Fluid Mixin */
 /* Set minimum and maximum screen widths (in px) */
 $min-vw: 400;
 $max-vw: 760;
 
-@define-mixin fluid $property, $min-value, $max-value {
+/* @define-function toRem($value) {
+  @return ($value / 16) * 1rem;
+} */
+
+@define-mixin fluid $property, $min-value, $max-value, $unit {
   $target-value: calc(
-    ($min-value * 1rem) + ($max-value - $min-value) * ((100vw - (($min-vw / 16 ) * 1rem)) / (($max-vw - $min-vw) / 16))
+    ($min-value * 1rem) + ($max-value - $min-value) * ((100vw - (($min-vw / 16) * 1rem)) / (($max-vw - $min-vw) / 16))
   );
   $(property): clamp(calc($min-value * 1rem), $target-value, calc($max-value * 1rem));
 }
