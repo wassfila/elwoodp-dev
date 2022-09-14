@@ -1,6 +1,9 @@
 <div class="hero">
   <h1>Hi, I'm Paul</h1>
-  <p>I’m a designer-developer based in York, UK. I built my first website in 2001 learning as I went. <a href="#">20 years</a> later I’m taking some time to study modern web development, fill gaps in my knowledge and become a better developer. This website is home to a few <a href="#">projects</a> charting my progress and <a href="#">articles</a> about interesting things I learn along the way.</p>
+  <p>
+    I’m a designer-developer based in York, UK. I built my first website in 2001 learning as I went. <a href="#">20 years</a> later I’m taking some time to study modern web development, fill gaps in my
+    knowledge and become a better developer. This website is home to a few <a href="#">projects</a> charting my progress and <a href="#">articles</a> about interesting things I learn along the way.
+  </p>
 </div>
 
 <style>
@@ -16,13 +19,14 @@
     font-size: fluid(44px, 60px, toRem);
     line-height: 110%;
     letter-spacing: -0.1rem;
-    @mixin theme color, var(--gray-50), var(--gray-800);
-    @mixin theme font-weight, 700, 775;
+    @mixin theme(color, var(--gray-50), var(--gray-800));
+    
+    @mixin theme: color, var(--gray-50), var(--gray-800);
   }
 
   p {
     align-self: flex-end;
-    @mixin fluid font-size, 1.125, 1.375;
+    font-size: fluid(18px, 24px, toRem);
     line-height: 160%;
   }
 
