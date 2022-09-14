@@ -20,7 +20,7 @@
   --gray-925-rgb: 38, 44, 53;
   --gray-950: #21262E;
 
-  --test-colour: 
+ 
  
   --blue: #5D86EB;
   --cyan: #6EBAF4;
@@ -30,3 +30,5 @@
   --min-vw: 400;
   --max-vw: 760;
 }
+
+$test-colour: hsl(354 81% 68%);

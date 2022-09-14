@@ -7,6 +7,7 @@
 </div>
 
 <style>
+  @import '../../styles/vars.css';
   @import '../../styles/mixins/mixins.css';
 
   .hero {
@@ -19,8 +20,9 @@
     font-size: fluid(44px, 60px, toRem);
     line-height: 110%;
     letter-spacing: -0.1rem;
-    @mixin theme(color, var(--gray-50), var(--gray-800));
-    @mixin theme(font-weight, 700, 775);
+    /* @mixin theme(color, var(--gray-800), var(--gray-50)); */
+    @mixin theme(font-weight, 775, 700);
+    color: alpha($test-colour, .2);
   }
 
   p {

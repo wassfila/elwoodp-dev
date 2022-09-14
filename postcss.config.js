@@ -4,8 +4,8 @@ module.exports = {
     'postcss-mixins': {},
     'postcss-nested': {},
     'postcss-simple-vars': {},
-    'postcss-functions': { functions: { toRem, stripUnit, unit, fluid } },
-    // TODO: Add postcss-preset-env https://github.com/csstools/postcss-plugins/tree/main/plugin-packs/postcss-preset-env
+    'postcss-functions': { functions: { toRem, stripUnit, unit, fluid, alpha } },
+    'postcss-preset-env': {},
   },
 };
 
@@ -14,11 +14,11 @@ module.exports = {
 
 function toRem(number) {
   return `${stripUnit(number) / 16}rem`;
-};
+}
 
 function toPx(number) {
   return `${stripUnit(number) * 16}px`;
-};
+}
 
 function stripUnit(value) {
   let number = '';
@@ -26,7 +26,7 @@ function stripUnit(value) {
     if (!isNaN(char) || char == '.') number += char;
   }
   return Number(number);
-};
+}
 
 function unit(value) {
   let unit = '';
@@ -34,7 +34,7 @@ function unit(value) {
     if (isNaN(char) && char != '.') unit += char;
   }
   return unit;
-};
+}
 
 function fluid(minValue, maxValue, convertTo) {
   let minVW = '400px'; // TODO: Convert to css custom properties
@@ -55,4 +55,9 @@ function fluid(minValue, maxValue, convertTo) {
 
   const targetValue = `calc(${minValue} + (${stripUnit(maxValue) - stripUnit(minValue)}) * ((100vw - ${minVW}) / (${stripUnit(maxVW) - stripUnit(minVW)})))`;
   return `clamp(${minValue}, ${targetValue}, ${maxValue})`;
-};
+}
+
+function alpha(color, alpha) {
+  const colorValues = color.match(/(?<=\().*(?=\))/)[0]; // Everything between brackets
+  return `hsl(${colorValues} / ${alpha})`;
+}
