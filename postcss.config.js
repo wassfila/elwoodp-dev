@@ -1,12 +1,25 @@
-const toRem = (number) => {
+module.exports = {
+  plugins: {
+    'postcss-import': {},
+    'postcss-mixins': {},
+    'postcss-nested': {},
+    'postcss-simple-vars': {},
+    'postcss-functions': { functions: { toRem, stripUnit, unit, fluid } },
+  },
+};
+
+/* Postcss functions
+  ------------------ */
+
+function toRem(number) {
   return `${stripUnit(number) / 16}rem`;
 };
 
-const toPx = (number) => {
+function toPx(number) {
   return `${stripUnit(number) * 16}px`;
 };
 
-const stripUnit = (value) => {
+function stripUnit(value) {
   let number = '';
   for (let char of String(value)) {
     if (!isNaN(char) || char == '.') number += char;
@@ -14,7 +27,7 @@ const stripUnit = (value) => {
   return Number(number);
 };
 
-const unit = (value) => {
+function unit(value) {
   let unit = '';
   for (let char of String(value)) {
     if (isNaN(char) && char != '.') unit += char;
@@ -22,14 +35,14 @@ const unit = (value) => {
   return unit;
 };
 
-const fluid = (minValue, maxValue, convert) => {
+function fluid(minValue, maxValue, convertTo) {
   let minVW = '400px'; // TODO: Convert to css custom properties
   let maxVW = '760px';
 
-  if (convert == 'toRem') {
+  if (convertTo == 'toRem') {
     minValue = toRem(minValue);
     maxValue = toRem(maxValue);
-  } else if (convert == 'toPx') {
+  } else if (convertTo == 'toPx') {
     minValue = toPx(minValue);
     maxValue = toPx(maxValue);
   }
@@ -41,14 +54,4 @@ const fluid = (minValue, maxValue, convert) => {
 
   const targetValue = `calc(${minValue} + (${stripUnit(maxValue) - stripUnit(minValue)}) * ((100vw - ${minVW}) / (${stripUnit(maxVW) - stripUnit(minVW)})))`;
   return `clamp(${minValue}, ${targetValue}, ${maxValue})`;
-};
-
-module.exports = {
-  plugins: {
-    'postcss-import': {},
-    'postcss-mixins': {},
-    'postcss-nested': {},
-    'postcss-simple-vars': {},
-    'postcss-functions': { functions: { toRem, stripUnit, unit, fluid } },
-  },
 };
