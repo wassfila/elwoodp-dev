@@ -5,6 +5,7 @@ module.exports = {
     'postcss-nested': {},
     'postcss-simple-vars': {},
     'postcss-functions': { functions: { toRem, stripUnit, unit, fluid } },
+    // TODO: Add postcss-preset-env https://github.com/csstools/postcss-plugins/tree/main/plugin-packs/postcss-preset-env
   },
 };
 

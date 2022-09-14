@@ -1,5 +1,5 @@
 /* Theme Mixin */
-@define-mixin theme $property, $dark-value, $light-value {
+@define-mixin theme $property, $light-value, $dark-value {
   :global([data-theme='dark']) & {
     $(property): $dark-value;
   }
@@ -8,7 +8,16 @@
   }
 }
 
-/* Fluid Mixin */
+@define-mixin theme-old $property, $dark-value, $light-value {
+  :global([data-theme='dark']) & {
+    $(property): $dark-value;
+  }
+  :global([data-theme='light']) & {
+    $(property): $light-value;
+  }
+}
+
+/* Fluid Mixin TODO: Remove in favour of new postcss function */
 /* Set minimum and maximum screen widths (in px) */
 $min-vw: 400;
 $max-vw: 760;
@@ -16,5 +25,4 @@ $max-vw: 760;
 @define-mixin fluid $property, $min-value, $max-value {
   $target-value: calc($min-value + (stripUnit($max-value) - stripUnit($min-value)) * ((100vw - toRem($min-vw)) / (stripUnit(toRem($max-vw)) - stripUnit(toRem($min-vw)))));
   $(property): clamp($min-value, $target-value, $max-value);
-
 }

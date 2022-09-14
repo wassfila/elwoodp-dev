@@ -16,11 +16,11 @@
     font-size: 0.8125rem;
     line-height: 1;
     border-radius: 4px;
-    @mixin theme background-color, rgba(var(--gray-700-rgb), .25), var(--gray-100);
-    @mixin theme color, rgba(var(--gray-300-rgb), .5), rgba(var(--gray-700-rgb), .6);
+    @mixin theme-old background-color, rgba(var(--gray-700-rgb), .25), var(--gray-100);
+    @mixin theme-old color, rgba(var(--gray-300-rgb), .5), rgba(var(--gray-700-rgb), .6);
 
     :global(li.article:hover) & { /* Change color on PageListItem hover */
-      @mixin theme background-color, rgba(var(--gray-700-rgb), .25), rgba(var(--gray-200-rgb), .5);
+      @mixin theme-old background-color, rgba(var(--gray-700-rgb), .25), rgba(var(--gray-200-rgb), .5);
     }
   }
 </style>

@@ -18,20 +18,20 @@ const { title, type } = Astro.props;
     padding-bottom: 1.25rem;
     margin-bottom: 1.25rem;
     border-bottom: 1px solid;
-    @mixin theme border-color, rgba(var(--gray-700-rgb), 0.35), rgba(var(--gray-500-rgb), 0.25);
+    @mixin theme-old border-color, rgba(var(--gray-700-rgb), 0.35), rgba(var(--gray-500-rgb), 0.25);
   }
 
   h2 {
     font-weight: 600;
     font-size: 1.75rem;
     line-height: 1;
-    @mixin theme color, var(--gray-50), var(--gray-800);
+    @mixin theme-old color, var(--gray-50), var(--gray-800);
   }
 
   header a {
     font-weight: 600;
     line-height: 1;
-    @mixin theme color, var(--gray-50), var(--gray-800);
+    @mixin theme-old color, var(--gray-50), var(--gray-800);
     &:hover {
       text-decoration: underline;
     }

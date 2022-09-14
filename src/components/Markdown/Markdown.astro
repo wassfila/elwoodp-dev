@@ -20,18 +20,18 @@
 
   article :global(blockquote) {
     @mixin fluid padding, 1, 1.5;
-    @mixin theme background-color, var(--gray-925), var(--gray-100);
+    @mixin theme-old background-color, var(--gray-925), var(--gray-100);
     white-space: normal;
     border-radius: 8px;
     border-left: 8px solid;
-    @mixin theme border-color, var(--gray-700), var(--gray-200);
+    @mixin theme-old border-color, var(--gray-700), var(--gray-200);
   }
 
   /* Code Block (Prism) */
 
   article :global(pre) {
     @mixin fluid padding, 1, 1.5;
-    @mixin theme background-color, var(--gray-925) !important, var(--gray-900) !important;
+    @mixin theme-old background-color, var(--gray-925) !important, var(--gray-900) !important;
     white-space: normal;
     border-radius: 8px;
   }
@@ -53,8 +53,8 @@
   article :global(h6) {
     margin-top: 0.5em;
     margin-bottom: -0.25em;
-    @mixin theme color, var(--gray-50), var(--gray-800);
-    @mixin theme font-weight, 700, 775;
+    @mixin theme-old color, var(--gray-50), var(--gray-800);
+    @mixin theme-old font-weight, 700, 775;
   }
 
   article :global(h2) {
