@@ -1,0 +1,14 @@
+<div class="meta">
+  <slot />
+</div>
+
+<style>
+  @import "../../../styles/vars.css";
+  @import "../../../styles/mixins/mixins.css";
+
+  .meta {
+    display: flex;
+    align-items: center;
+    column-gap: fluid(8px, 16px, toRem);
+  }
+</style>

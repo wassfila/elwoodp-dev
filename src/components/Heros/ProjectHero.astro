@@ -1,52 +1,45 @@
 ---
-import ProjectIcon from "@components/Icons/ProjectIcon.astro";
-import HeroHeading from "./HeroHeading.astro";
+import ProjectIcon from '@components/Icons/ProjectIcon.astro';
+import HeroHeading from './HeroHeading.astro';
+import Meta from '@components/Heros/Meta/Meta.astro';
+import MetaDivider from '@components/Heros/Meta/MetaDivider.astro';
 
 const { content } = Astro.props;
 ---
 
-
 <header>
-  <span class="icon">
-    <ProjectIcon icon={content.icon} />
-  </span>
   <HeroHeading title={content.title} />
-  <div class="external-links">
-    <a class="external-link" href={`https://github.com/${content.sourceUrl}`}>Source</a>
-    <a class="external-link" href={content.liveUrl}>Live</a>
-  </div>
+  <Meta>
+    <ProjectIcon icon={content.icon} />
+    <MetaDivider />
+    <div class="meta__description">{content.description}</div>
+    <MetaDivider />
+    <date>{content.year}</date>
+    <!-- <div class="external-links">
+      <a class="external-link" href={`https://github.com/${content.sourceUrl}`}>Source</a>
+      <a class="external-link" href={content.liveUrl}>Live</a>
+    </div> -->
+  </Meta>
 </header>
 
-
 <style>
-  @import "../../styles/mixins/mixins.css";
+  @import '../../styles/vars.css';
+  @import '../../styles/mixins/mixins.css';
 
   header {
     display: flex;
     flex-direction: column;
-    @mixin fluid gap, 2, 2.5;
+    row-gap: fluid(24px, 32px, toRem);
     align-items: center;
+    font-size: toRem(14px);
   }
 
-  .icon :global(svg) {
-    @mixin fluid width, 5.625, 7;
-    @mixin fluid height, 5.625, 7;
+  :global(.meta svg) {
+    width: 26px;
+    height: 26px;
   }
 
-  .external-links {
-    display: flex;
-    gap: 1rem;
-  }
-
-  .external-link {
-    padding: 4px 8px;
-    border: 1px solid;
-    @mixin theme-old border-color, rgba(var(--gray-700-rgb), .75), var(--gray-200);
-    border-radius: 3px;
-    line-height: 100%;
-  }
-
-  .external-link:hover {
-    @mixin theme-old border-color, var(--gray-600), rgba(var(--gray-600-rgb), .6);
+  .meta__description {
+    font-size: toRem(16px);
   }
 </style>

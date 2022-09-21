@@ -23,5 +23,9 @@ const { tag } = Astro.props;
     :global(li.article:hover) & { 
       @mixin theme(background-color, alpha($gray-50, 90%), alpha($gray-850, 90%));
     }
+    /* Change color on markdown pages (brighter background) */
+    :global(.markdown) & { 
+      @mixin theme(background-color, $gray-200, $gray-850);
+    }
   }
 </style>

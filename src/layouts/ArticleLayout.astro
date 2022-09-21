@@ -8,7 +8,7 @@ import '@styles/prism.css';
 const { content } = Astro.props;
 ---
 
-<SiteLayout title={content.title} description={content.description}>
+<SiteLayout title={content.title} description={content.description} bodyClass='markdown'>
   <Container maxWidth="650px">
     <ArticleHero title={content.title} date={content.date} tags={content.tags} />
     <Markdown>
