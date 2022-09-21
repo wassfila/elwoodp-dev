@@ -1,10 +1,10 @@
 /* Theme Mixin */
 @define-mixin theme $property, $light-value, $dark-value {
-  :global([data-theme='dark']) & {
-    $(property): $dark-value;
-  }
   :global([data-theme='light']) & {
     $(property): $light-value;
+  }
+  :global([data-theme='dark']) & {
+    $(property): $dark-value;
   }
 }
 

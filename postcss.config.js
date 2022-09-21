@@ -59,5 +59,5 @@ function fluid(minValue, maxValue, convertTo) {
 
 function alpha(color, alpha) {
   const colorValues = color.match(/(?<=\().*(?=\))/)[0]; // Everything between brackets
-  return `hsl(${colorValues} / ${alpha})`;
+  return `rgb(${colorValues} / ${alpha})`;
 }

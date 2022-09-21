@@ -7,6 +7,7 @@ const { title, type } = Astro.props;
 </header>
 
 <style>
+  @import "../../styles/vars.css";
   @import "../../styles/mixins/mixins.css";
   
   header {
@@ -15,25 +16,27 @@ const { title, type } = Astro.props;
     grid-template-columns: 1fr max-content;
     align-items: end;
     gap: 1rem;
-    padding-bottom: 1.25rem;
-    margin-bottom: 1.25rem;
+    padding-inline: 48px;
+    padding-top: toRem(28px);
+    padding-bottom: toRem(20px);
+    /* margin-bottom: toRem(20px); */
     border-bottom: 1px solid;
-    @mixin theme-old border-color, rgba(var(--gray-700-rgb), 0.35), rgba(var(--gray-500-rgb), 0.25);
+    @mixin theme(background-color, $gray-50, transparent);
+    @mixin theme(border-color, alpha($gray-300, 50%), alpha($gray-800, 40%));
+    @mixin theme(color, $gray-900, $white);
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
+    font-weight: 500;
+    line-height: 1;
   }
 
   h2 {
-    font-weight: 600;
-    font-size: 1.75rem;
-    line-height: 1;
-    @mixin theme-old color, var(--gray-50), var(--gray-800);
+    font-size: toRem(20px);
   }
 
   header a {
-    font-weight: 600;
-    line-height: 1;
-    @mixin theme-old color, var(--gray-50), var(--gray-800);
     &:hover {
-      text-decoration: underline;
+      color: $blue;
     }
   }
 

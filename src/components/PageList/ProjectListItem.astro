@@ -17,6 +17,7 @@ const { projectUrl, title, icon, sourceUrl, liveUrl } = Astro.props;
 
 
 <style>
+  @import "../../styles/vars.css";
   @import "../../styles/mixins/mixins.css";
 
   .project {
@@ -29,16 +30,15 @@ const { projectUrl, title, icon, sourceUrl, liveUrl } = Astro.props;
     display: grid;
     grid-template-columns: 28px 1fr;
     gap: 1rem;
-
     &:hover {
-      text-decoration: underline;
+      color: $blue;
     }
   }
 
   .external-link {
     font-size: 0.875rem;
     &:hover {
-      text-decoration: underline;
+      color: $blue;
     }
   }
 
@@ -47,7 +47,7 @@ const { projectUrl, title, icon, sourceUrl, liveUrl } = Astro.props;
     .project {
       grid-template-columns: 1fr;
     }
-
+    
     .external-link {
       display: none;
     }

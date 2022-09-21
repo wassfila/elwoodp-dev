@@ -2,25 +2,24 @@
 const { maxWidth } = Astro.props;
 ---
 
-<div class="wrapper">
+<div class="container-wrapper">
   <div class="container" style={maxWidth && `width: min(100%, ${maxWidth}`}>
     <slot />
   </div>
 </div>
 
-
 <style>
-  @import "../../styles/mixins/mixins.css";
+  @import '../../styles/mixins/mixins.css';
+
+  .container-wrapper {
+    padding-inline: fluid(24px, 48px);
+  }
 
   .container {
     display: flex;
     flex-direction: column;
-    @mixin fluid gap, 5, 7.5;
+    gap: fluid(90px, 120px, toRem);
     margin-inline: auto;
     width: min(100%, 760px);
-  }
-
-  .wrapper {
-    @mixin fluid padding-inline, 1.25, 3;
   }
 </style>

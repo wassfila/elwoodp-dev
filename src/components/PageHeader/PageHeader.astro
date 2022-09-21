@@ -1,16 +1,24 @@
 ---
 import ThemeToggle from './ThemeToggle.astro';
 import IconMenu from '@assets/icons/icon-menu.astro';
-import IconX from "@assets/icons/icon-x.astro";
+import IconX from '@assets/icons/icon-x.astro';
+
+let parentPathname = '';
+let slashCount = 0;
+for (const c of Astro.url.pathname) {
+  parentPathname += c;
+  if (c === '/') slashCount++;
+  if (slashCount === 2) break;
+}
 ---
 
 <header>
   <nav id="header-nav" tabindex="-1">
     <ul id="header-nav__list">
-      <li><a href="/">Home</a></li>
-      <li><a href="/about/">About</a></li>
-      <li><a href="/projects/">Projects</a></li>
-      <li><a href="/articles/">Articles</a></li>
+      <li><a href="/" class={parentPathname == '/' ? 'active' : ''}>Home</a></li>
+      <li><a href="/about/" class={parentPathname == '/about/' ? 'active' : ''}>About</a></li>
+      <li><a href="/projects/" class={parentPathname == '/projects/' ? 'active' : ''}>Projects</a></li>
+      <li><a href="/articles/" class={parentPathname == '/articles/' ? 'active' : ''}>Articles</a></li>
     </ul>
     <button id="header-nav__close-button" class="header-nav__close-button"><IconX /></button>
   </nav>
@@ -18,16 +26,16 @@ import IconX from "@assets/icons/icon-x.astro";
   <button id="header-nav__open-button" class="header-nav__open-button"><IconMenu /></button>
 </header>
 
-
 <style>
-  @import "../../styles/mixins/mixins.css";
+  @import '../../styles/vars.css';
+  @import '../../styles/mixins/mixins.css';
 
+  /* Mobile and up */
   header {
     display: flex;
     justify-content: space-between;
-    gap: 2rem;
-    padding: 1rem;
-    @mixin theme-old background-color, var(--gray-925), var(--gray-100);
+    column-gap: toRem(32px);
+    padding: 20px 24px;
   }
 
   nav {
@@ -39,28 +47,30 @@ import IconX from "@assets/icons/icon-x.astro";
     display: grid;
     align-items: center;
     justify-items: center;
-    width: 100%; 
+    width: 100%;
     height: 100%;
     inset: 0;
-    @mixin theme-old background-color, rgba(var(--gray-925-rgb), 0.9), rgba(var(--gray-50-rgb), 0.9);
+    @mixin theme(background-color, alpha($gray-100, 90%), alpha($gray-950, 90%));
     backdrop-filter: blur(6px);
     z-index: 2;
   }
 
-  .nav--overlay  :global(ul) {
+  .nav--overlay :global(ul) {
     position: relative;
     display: grid;
-    gap: 1rem;
-    padding: 1rem;
+    row-gap: toRem(16px);
+    padding: 16px;
     text-align: center;
-    font-size: 1.3rem;
+    font-size: toRem(20px);
     font-weight: 600;
-    @mixin theme-old color, var(--gray-50), var(--gray-800);
     z-index: 3;
   }
 
-  a:hover {
-    text-decoration: underline;
+  a {
+    @mixin theme(color, $gray-900, $gray-50);
+    &:hover {
+      color: $blue;
+    }
   }
 
   .header-nav__open-button {
@@ -95,12 +105,23 @@ import IconX from "@assets/icons/icon-x.astro";
       gap: 2rem;
     }
 
-    .header-nav__open-button, .header-nav__close-button {
+    a {
+      @mixin theme(color, $gray-600, $gray-700);
+      &.active {
+        @mixin theme(color, $gray-900, $gray-50);
+      }
+      &.active:hover,
+      &:hover {
+        color: $blue;
+      }
+    }
+
+    .header-nav__open-button,
+    .header-nav__close-button {
       display: none;
     }
   }
 </style>
-
 
 <script>
   const headerNav = document.getElementById('header-nav');
@@ -113,11 +134,11 @@ import IconX from "@assets/icons/icon-x.astro";
 
   function menuButtonHandler(e) {
     headerNav.classList.toggle('nav--overlay');
-    headerNav.focus({preventScroll: true}); // Accessibility: take focus from menu button to headerNav so nav links can be tabbed - https://stackoverflow.com/a/70852588/1954838
+    headerNav.focus({ preventScroll: true }); // Accessibility: take focus from menu button to headerNav so nav links can be tabbed - https://stackoverflow.com/a/70852588/1954838
   }
 
   function headerNavListClickHandler(e) {
-     e.stopPropagation(); // Stop clicks through list element closing overlay
+    e.stopPropagation(); // Stop clicks through list element closing overlay
   }
 
   function headerNavClickHandler(e) {

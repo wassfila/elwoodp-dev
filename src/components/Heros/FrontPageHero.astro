@@ -1,8 +1,11 @@
+---
+---
+
 <div class="hero">
-  <h1>Hi, I'm Paul</h1>
+  <header><h1>Hello!</h1><img class="memoji" src="/images/memoji-paul.png" width="54px" height="52px" /></header>
   <p>
-    I’m a designer-developer based in York, UK. I built my first website in 2001 learning as I went. <a href="#">20 years</a> later I’m taking some time to study modern web development, fill gaps in my
-    knowledge and become a better developer. This website is home to a few <a href="#">projects</a> charting my progress and <a href="#">articles</a> about interesting things I learn along the way.
+    I’m Paul, a designer-developer based in York, UK. I’ve been building websites for <a href="#">20 years</a>. The web has changed quite a bit in that time, so I’m taking some time to sharpen my
+    skills and become a better developer. This website charts my progress.
   </p>
 </div>
 
@@ -10,31 +13,42 @@
   @import '../../styles/vars.css';
   @import '../../styles/mixins/mixins.css';
 
+  header {
+    display: flex;
+    align-items: flex-end;
+    column-gap: toRem(16px);
+  }
+
+  .memoji {
+    width: fluid(39.6px, 54px, toRem);
+    image-rendering: -webkit-optimize-contrast;
+  }
+
   .hero {
     display: flex;
     flex-direction: column;
-    gap: 1.5rem;
+    gap: toRem(32px);
   }
 
   h1 {
     font-size: fluid(44px, 60px, toRem);
-    line-height: 110%;
     letter-spacing: -0.1rem;
-    /* @mixin theme(color, var(--gray-800), var(--gray-50)); */
-    @mixin theme(font-weight, 775, 700);
-    color: alpha($test-colour, .2);
+    @mixin theme(color, $gray-900, $white);
+    @mixin theme(font-weight, 660, 610);
+    line-height: 72%;
   }
 
   p {
     align-self: flex-end;
     font-size: fluid(18px, 24px, toRem);
-    line-height: 160%;
+    line-height: 155%;
   }
 
   a {
-    color: var(--blue);
-    &:hover {
-      text-decoration: underline;
+    color: $blue;
+    position: relative;
+    &:hover{
+      color: $blue-500;
     }
   }
 </style>

@@ -1,12 +1,12 @@
 ---
-  const { tag } = Astro.props;
+const { tag } = Astro.props;
 ---
 
 <li class="tag">{tag}</li>
 
-
 <style>
-  @import "../../styles/mixins/mixins.css";
+  @import '../../styles/vars.css';
+  @import '../../styles/mixins/mixins.css';
 
   .tag {
     display: flex;
@@ -16,11 +16,12 @@
     font-size: 0.8125rem;
     line-height: 1;
     border-radius: 4px;
-    @mixin theme-old background-color, rgba(var(--gray-700-rgb), .25), var(--gray-100);
-    @mixin theme-old color, rgba(var(--gray-300-rgb), .5), rgba(var(--gray-700-rgb), .6);
+    @mixin theme(background-color, $gray-100, $gray-850);
+    @mixin theme(color, $gray-800, $gray-600);
 
-    :global(li.article:hover) & { /* Change color on PageListItem hover */
-      @mixin theme-old background-color, rgba(var(--gray-700-rgb), .25), rgba(var(--gray-200-rgb), .5);
+    /* Change color on PageListItem hover */
+    :global(li.article:hover) & { 
+      @mixin theme(background-color, alpha($gray-50, 90%), alpha($gray-850, 90%));
     }
   }
 </style>

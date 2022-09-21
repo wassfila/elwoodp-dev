@@ -7,37 +7,55 @@ const { type, title, maxNumber, displayHeader } = Astro.props;
 const projects = await Astro.glob('../../pages/projects/*.md');
 const articles = await Astro.glob('../../pages/articles/*.md');
 // Order both by date
-projects.sort((a, b) => new Date(b.frontmatter.date) - new Date(a.frontmatter.date))
-articles.sort((a, b) => new Date(b.frontmatter.date) - new Date(a.frontmatter.date))
+projects.sort((a, b) => new Date(b.frontmatter.date) - new Date(a.frontmatter.date));
+articles.sort((a, b) => new Date(b.frontmatter.date) - new Date(a.frontmatter.date));
 ---
 
 <section>
-  { displayHeader && <PageListHeader title={title} type={type} /> }
+  {displayHeader && <PageListHeader title={title} type={type} />}
   <ul>
-    {(type === 'projects') && projects.slice(0, maxNumber).map((project) => (
-    <ProjectListItem projectUrl={project.url} {...project.frontmatter} />
-    ))}
-    {(type === 'articles') && articles.slice(0, maxNumber).map((article) => (
-    <ArticleListItem articleUrl={article.url} {...article.frontmatter} />
-    ))}
+    {type === 'projects' && projects.slice(0, maxNumber).map((project) => <ProjectListItem projectUrl={project.url} {...project.frontmatter} />)}
+    {type === 'articles' && articles.slice(0, maxNumber).map((article) => <ArticleListItem articleUrl={article.url} {...article.frontmatter} />)}
   </ul>
 </section>
 
-
 <style>
-  @import "../../styles/mixins/mixins.css";
+  @import '../../styles/vars.css';
+  @import '../../styles/mixins/mixins.css';
+
+  section {
+    position: relative;
+    @mixin theme(background-color, $white, $gray-900);
+    border-radius: 8px;
+    --box-shadow-ondark: inset 0px 1px 0px alpha($gray-800, 0.5);
+    @mixin theme(box-shadow, none, var(--box-shadow-ondark));
+    &:after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      border-radius: 8px;
+      --box-shadow-onlight: 0px 2px 1.5px -1px alpha($gray-200, 100%), 0px 4px 12px -2px alpha($gray-200, 75%), 0px 8px 20px -1px alpha($gray-200, 65%);
+      --box-shadow-ondark: 0px 2px 1.5px -1px alpha($gray-950, 12%), 0px 4px 12px -2px alpha($gray-950, 5%), 0px 8px 20px -1px alpha($gray-950, 8%);
+      @mixin theme(box-shadow, var(--box-shadow-onlight), var(--box-shadow-ondark));
+      mix-blend-mode: multiply;
+      pointer-events: none;
+    }
+  }
+
+  ul {
+    padding: toRem(24px) 48px toRem(32px) 48px;
+  }
 
   /* Common styling for child elements */
   section :global(li:is(.project, .article)) {
     margin-inline: -1rem;
     padding-inline: 1rem;
-    border-radius: 8px;
+    border-radius: 6px;
     &:hover {
-      @mixin theme-old background-color, rgba(var(--gray-925-rgb), .8), rgba(var(--gray-100-rgb), .75);
+      @mixin theme(background-color, alpha($blue, 10%), alpha($blue, 14%));
     }
   }
   section :global(li:is(.project, .article) a) {
     padding-block: 0.75rem;
   }
-
 </style>

@@ -14,6 +14,7 @@ import IconNetlify from '@assets/icons/icon-netlify.astro';
 </footer>
 
 <style>
+  @import '../styles/vars.css';
   @import '../styles/mixins/mixins.css';
 
   footer {
@@ -21,8 +22,8 @@ import IconNetlify from '@assets/icons/icon-netlify.astro';
     flex-direction: column;
     align-items: center;
     gap: 0.625rem;
-    @mixin fluid padding-block, 3.5, 4.5;
-    @mixin theme-old color, var(--gray-500), var(--gray-700);
+    padding-block: fluid(48px, 72px, toRem);
+    @mixin theme(color, $gray-800, $gray-300);
     font-size: 0.875rem;
   }
 
@@ -37,11 +38,11 @@ import IconNetlify from '@assets/icons/icon-netlify.astro';
     align-items: center;
     line-height: 1;
     &:hover {
-      text-decoration: underline;
+      color: $blue;
     }
   }
 
   .icon {
-    @mixin theme-old color, var(--gray-500), var(--gray-800);
+    @mixin theme(color, $gray-800, $gray-300);
   }
 </style>
