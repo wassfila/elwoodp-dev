@@ -7,7 +7,7 @@ tags:
   - CSS
 ---
 
-I like many things about Tailwind, and the utility-first CSS approach but one of the obvious criticisms is how unwieldy it looks in your HTML. The mental overhead of processing something like this can be a lot of work:
+I like many things about Tailwind, and the utility-first CSS approach but one of the obvious criticisms is how unwieldy it looks in your markup. The mental overhead of processing something like this can be a lot of work:
 
 ```html
 <div class="flex items-center justify-between mx-2 font-medium text-white relative bg-black border border-indigo">

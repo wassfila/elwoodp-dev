@@ -3,7 +3,7 @@ import SiteLayout from "@layouts/SiteLayout.astro";
 import Container from "@components/UI/Container.astro";
 import ArticleHero from "@components/Heros/ArticleHero.astro";
 import Markdown from '@components/Markdown/Markdown.astro';
-import '@styles/prism.css';
+// import '@styles/hljs.css';
 
 const { content } = Astro.props;
 ---
@@ -16,3 +16,8 @@ const { content } = Astro.props;
     </Markdown>
   </Container>
 </SiteLayout>
+
+<!-- <script>
+  import hljs from 'highlight.js';
+  hljs.highlightAll();
+</script> -->

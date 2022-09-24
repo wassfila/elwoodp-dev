@@ -10,16 +10,19 @@
   },
   "devDependencies": {
     "astro": "^1.0.2",
+    "@astrojs/markdown-component": "^1.0.1",
     "postcss": "^8.4.16",
     "postcss-functions": "^4.0.2",
     "postcss-import": "^14.1.0",
     "postcss-mixins": "github:Elwood-P/postcss-mixins",
     "postcss-nested": "^5.0.6",
     "postcss-preset-env": "^7.8.1",
-    "postcss-simple-vars": "^6.0.3"
+    "postcss-simple-vars": "^6.0.3",
+    "remark-code-extra": "^1.0.1",
+    "rehype-shiki": "github:vweevers/rehype-shiki",
+    "shiki-themes": "^0.2.7"
   },
   "dependencies": {
-    "@astrojs/markdown-component": "^1.0.1",
     "theme-change": "^2.1.0"
   }
 }

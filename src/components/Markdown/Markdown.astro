@@ -3,45 +3,104 @@
 </article>
 
 <style>
+  @import '../../styles/vars.css';
   @import '../../styles/mixins/mixins.css';
 
   article {
     display: grid;
-    @mixin fluid gap, 2, 2.5;
-    @mixin fluid font-size, 1, 1.125;
+    row-gap: fluid(24px, 24px, toRem);
+    font-size: fluid(16px, 18px, toRem);
+    line-height: 155%;
   }
 
   article :global(a) {
-    color: var(--blue);
+    color: $blue;
     &:hover {
-      text-decoration: underline;
+      color: $blue-500;
     }
   }
 
   article :global(blockquote) {
-    @mixin fluid padding, 1, 1.5;
-    @mixin theme-old background-color, var(--gray-925), var(--gray-100);
+    position: relative;
+    padding: fluid(16px, 24px, toRem);
+    padding-left: 76px;
+    @mixin theme(background-color, alpha($blue, 6%), alpha($blue, 14%));
     white-space: normal;
     border-radius: 8px;
-    border-left: 8px solid;
-    @mixin theme-old border-color, var(--gray-700), var(--gray-200);
+    &:after,
+    &:before {
+      content: '';
+      position: absolute;
+      top: calc(50% - 17px);
+      right: 0;
+      bottom: 0;
+      left: 21px;
+      width: 28px;
+      height: 28px;
+      border: 3px solid;
+      box-sizing: content-box;
+    }
+    &:after {
+      @mixin theme(background-color, $gray-50, $gray-850);
+      mask-image: url('../../assets/icons/icon-info.svg');
+      mask-repeat: no-repeat;
+      mask-position: center;
+    }
+    &:before {
+      border-radius: 100px;
+      background-color: $blue;
+      background-clip: padding-box;
+      @mixin theme(border-color, alpha($blue, 35%), alpha($blue, 65%));
+    }
   }
 
-  /* Code Block (Prism) */
-
+  /* Code Block (shiki + remark-code-extra - see astro.config) */
   article :global(pre) {
-    @mixin fluid padding, 1, 1.5;
-    @mixin theme-old background-color, var(--gray-925) !important, var(--gray-900) !important;
-    white-space: normal;
+    background: transparent !important;
+    white-space: pre-wrap;
+  }
+
+  :global(div.codeblock) {
+    padding-block: fluid(24px, 24px, toRem);
+    padding-inline: fluid(24px, 36px, toRem);
+    @mixin theme(background-color, $gray-950, $gray-975);
     border-radius: 8px;
+    font-size: toRem(14px);
+    line-height: 170%;
+    position: relative;
+    margin: toRem(20px) -36px;
+    white-space: normal;
+    font-family: Menlo, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
   }
 
-  article :global(code) {
-    @mixin fluid font-size, 0.875, 1;
+  /* language badge */
+  :global(div.codeblock:before) {
+    position: absolute;
+    right: 16px;
+    top: 16px;
+    color: rgb(119 120 123);
+    font-size: toRem(12px);
+    line-height: 100%;
   }
 
-  /* Headings  */
-  
+  :global(div.codeblock--js:before, div.codeblock--javascript:before) {
+    content: 'js';
+  }
+
+  :global(div.codeblock--html:before) {
+    content: 'html';
+  }
+
+  :global(div.codeblock--css:before) {
+    content: 'css';
+  }
+
+  :global(div.codeblock--shell:before, div.codeblock--bash:before, div.codeblock--sh:before) {
+    content: 'sh';
+  }
+
+  /* Headings */
+
   article :global(h1) {
     display: none;
   }
@@ -51,20 +110,19 @@
   article :global(h4),
   article :global(h5),
   article :global(h6) {
-    margin-top: 0.5em;
-    margin-bottom: -0.25em;
     @mixin theme-old color, var(--gray-50), var(--gray-800);
-    @mixin theme-old font-weight, 700, 775;
+    font-weight: 600;
   }
 
   article :global(h2) {
-    @mixin fluid font-size, 1.75, 2.25;
-    /* @mixin fluid font-size, 1.5, 2; */
+    margin-top: fluid(32px, 32px, toRem);
+    margin-bottom: fluid(8px, 8px, toRem);
+    font-size: fluid(36px, 36px, toRem);
     line-height: 130%;
   }
 
   article :global(h3) {
-    @mixin fluid font-size, 1.5, 2;
+    font-size: fluid(30, 30, toRem);
     line-height: 130%;
   }
 

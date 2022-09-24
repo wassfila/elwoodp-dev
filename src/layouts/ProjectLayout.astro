@@ -4,7 +4,6 @@ import Container from '@components/UI/Container.astro';
 import ProjectHero from '@components/Heros/ProjectHero.astro';
 import Markdown from '@components/Markdown/Markdown.astro';
 import MarkdownContent from '@astrojs/markdown-component';
-// import '@styles/article.css';
 
 const { content } = Astro.props;
 
@@ -12,7 +11,7 @@ const response = await fetch(`https://raw.githubusercontent.com/${content.source
 const readme = await response.text();
 ---
 
-<SiteLayout title={content.title} description={content.description}>
+<SiteLayout title={content.title} description={content.description} bodyClass='markdown'>
   <Container>
     <ProjectHero content={content} />
     <Markdown>
