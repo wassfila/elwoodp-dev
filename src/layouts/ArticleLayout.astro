@@ -1,9 +1,8 @@
 ---
 import SiteLayout from "@layouts/SiteLayout.astro";
 import Container from "@components/UI/Container.astro";
-import ArticleHero from "@components/Heros/ArticleHero.astro";
-import Markdown from '@components/Markdown/Markdown.astro';
-// import '@styles/hljs.css';
+import ArticleHero from "@components/Headers/ArticleHero.astro";
+import MarkdownWrapper from '@components/Markdown/MarkdownWrapper.astro';
 
 const { content } = Astro.props;
 ---
@@ -11,13 +10,8 @@ const { content } = Astro.props;
 <SiteLayout title={content.title} description={content.description} bodyClass='markdown'>
   <Container maxWidth="650px">
     <ArticleHero title={content.title} date={content.date} tags={content.tags} />
-    <Markdown>
+    <MarkdownWrapper>
       <slot />
-    </Markdown>
+    </MarkdownWrapper>
   </Container>
 </SiteLayout>
-
-<!-- <script>
-  import hljs from 'highlight.js';
-  hljs.highlightAll();
-</script> -->

@@ -7,10 +7,13 @@
   @import '../../styles/mixins/mixins.css';
 
   article {
-    display: grid;
-    row-gap: fluid(24px, 24px, toRem);
+    /* display: grid;
+    row-gap: fluid(24px, 24px, toRem); */
     font-size: fluid(16px, 18px, toRem);
     line-height: 155%;
+    & > :global(* + *) {
+      margin-top: toRem(24px);
+    }
   }
 
   article :global(a) {
@@ -54,7 +57,9 @@
     }
   }
 
-  /* Code Block (shiki + remark-code-extra - see astro.config) */
+  /* CODE BLOCK (shiki + remark-code-extra - see astro.config) */
+  /* --------------------------------------------------------- */
+
   article :global(pre) {
     background: transparent !important;
     white-space: pre-wrap;
@@ -68,9 +73,9 @@
     font-size: toRem(14px);
     line-height: 170%;
     position: relative;
-    margin: toRem(20px) -36px;
+    margin: toRem(36px) -36px;
     white-space: normal;
-    font-family: Menlo, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
+    font-family: Menlo, Monaco, monospace;
   }
 
   /* language badge */
@@ -87,6 +92,14 @@
     content: 'js';
   }
 
+  :global(div.codeblock--jsx:before) {
+    content: 'jsx';
+  }
+
+  :global(div.codeblock--json:before) {
+    content: 'json';
+  }
+
   :global(div.codeblock--html:before) {
     content: 'html';
   }
@@ -96,10 +109,15 @@
   }
 
   :global(div.codeblock--shell:before, div.codeblock--bash:before, div.codeblock--sh:before) {
-    content: 'sh';
+    content: 'shell';
   }
 
-  /* Headings */
+  :global(div.codeblock--php:before) {
+    content: 'php';
+  }
+
+  /* HEADINGS */
+  /* -------- */
 
   article :global(h1) {
     display: none;
@@ -114,19 +132,21 @@
     font-weight: 600;
   }
 
-  article :global(h2) {
-    margin-top: fluid(32px, 32px, toRem);
-    margin-bottom: fluid(8px, 8px, toRem);
+  /* article :global(h2) {
+    margin-top: fluid(56px, 56px, toRem);
+    margin-bottom: fluid(32px, 32px, toRem);
     font-size: fluid(36px, 36px, toRem);
     line-height: 130%;
-  }
+  } */
 
-  article :global(h3) {
+  article :global(h2) {
     font-size: fluid(30, 30, toRem);
+    margin-top: fluid(40px, 40px, toRem);
     line-height: 130%;
   }
 
-  /* Lists  */
+  /* LISTS */
+  /* ----- */
 
   article :global(ul) {
     list-style: disc;
