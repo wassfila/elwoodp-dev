@@ -1,0 +1,50 @@
+---
+import { Icon } from 'astro-icon';
+const { link, onclick, icon } = Astro.props;
+---
+
+{
+  link ? (
+    <a class="button" href={link}>
+      {icon && <Icon name={icon} />}
+      <slot />
+    </a>
+  ) : (
+    <button class="button" onclick={onclick}>
+      {icon && <Icon name={icon} />}
+      <slot />
+    </button>
+  )
+}
+
+<style>
+  @import '../../styles/vars.css';
+  @import '../../styles/mixins/mixins.css';
+
+  .button {
+    display: flex;
+    column-gap: toRem(5px);
+    padding: toRem(6px) toRem(8px);
+    @mixin theme(background-color, $white, $gray-900);
+    border: 1px solid;
+    @mixin theme(border-color, $gray-400, $gray-850);
+    border-radius: 4px;
+    --box-shadow-ondark: 0px 1px 0px alpha($gray-975, 7%), 0px 2px 3px alpha($gray-975, 60%);
+    --box-shadow-onlight: 0px 1px 0px alpha($gray-300, 50%), 0px 3px 3px alpha($gray-300, 30%);
+    @mixin theme(box-shadow, var(--box-shadow-onlight), var(--box-shadow-ondark));
+    font-size: toRem(14px);
+    line-height: 100%;
+
+    &:hover {
+      color: $blue;
+      @mixin theme(border-color, alpha($blue, 30%), alpha($blue, 20%));
+      --box-shadow-ondark: 0px 0px 3px alpha($blue, 5%), 0px 0px 8px alpha($blue, 1%);
+      --box-shadow-onlight: 0px 0px 3px alpha($blue, 10%), 0px 0px 8px alpha($blue, 5%);
+      @mixin theme(box-shadow, var(--box-shadow-onlight), var(--box-shadow-ondark));
+    }
+  }
+
+  .button :global(svg) {
+    width: toRem(16px);
+  }
+</style>

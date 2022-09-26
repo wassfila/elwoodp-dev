@@ -1,0 +1,41 @@
+---
+import Button from '@components/UI/Button.astro';
+---
+
+<div class="content-toolbar">
+  <div class="section">
+    <Button icon="bi:list-ul"/>
+    <span class="file-name">README.md</span>
+  </div>
+  <div class="section">
+    <Button link="#" icon="bi:github">Source</Button>
+    <Button link="#" icon="bi:lightning-charge-fill">Live</Button>
+  </div>
+</div>
+
+<style>
+  @import '../../styles/vars.css';
+  @import '../../styles/mixins/mixins.css';
+
+  .content-toolbar {
+    display: flex;
+    justify-content: space-between;
+    margin-inline: -24px;
+    margin-bottom: toRem(60px);
+    padding-bottom: toRem(16px);
+    border-bottom: 1px solid;
+    @mixin theme(border-color, alpha($gray-300, 75%), alpha($gray-800, 50%));
+  }
+
+  .section {
+    display: flex;
+    align-items: center;
+    gap: toRem(16px);
+  }
+
+  .file-name {
+    font-size: toRem(14px);
+    font-weight: 600;
+    line-height: 100%;
+  }
+</style>

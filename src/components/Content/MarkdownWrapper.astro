@@ -25,6 +25,7 @@
 
   article :global(blockquote) {
     position: relative;
+    margin-inline: -24px;
     padding: fluid(16px, 24px, toRem);
     padding-left: 76px;
     @mixin theme(background-color, alpha($blue, 6%), alpha($blue, 14%));
@@ -70,10 +71,10 @@
     padding-inline: fluid(24px, 36px, toRem);
     @mixin theme(background-color, $gray-950, $gray-975);
     border-radius: 8px;
-    font-size: toRem(14px);
+    font-size: toRem(16px);
     line-height: 170%;
     position: relative;
-    margin: toRem(36px) -36px;
+    margin: toRem(36px) -24px;
     white-space: normal;
     font-family: Menlo, Monaco, monospace;
   }

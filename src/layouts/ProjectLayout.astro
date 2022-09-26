@@ -2,6 +2,7 @@
 import SiteLayout from '@layouts/SiteLayout.astro';
 import Container from '@components/UI/Container.astro';
 import ProjectHero from '@components/Heros/ProjectHero.astro';
+import ProjectContentToolbar from '@components/Content/ProjectContentToolbar.astro';
 import MarkdownWrapper from '@components/Content/MarkdownWrapper.astro';
 import Markdown from '@astrojs/markdown-component';
 
@@ -12,10 +13,13 @@ const readme = await response.text();
 ---
 
 <SiteLayout title={content.title} description={content.description} bodyClass='markdown'>
-  <Container>
+  <Container maxWidth="720px">
     <ProjectHero content={content} />
-    <MarkdownWrapper>
-      <Markdown content={readme} />
-    </MarkdownWrapper>
+    <div>
+      <ProjectContentToolbar />
+      <MarkdownWrapper>
+        <Markdown content={readme} />
+      </MarkdownWrapper>
+    </div>
   </Container>
 </SiteLayout>

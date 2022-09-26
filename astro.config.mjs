@@ -34,4 +34,10 @@ export default defineConfig({
     //   wrap: true,
     // },
   },
+  vite: {
+    // Added for https://github.com/natemoo-re/astro-icon
+    ssr: {
+      external: ["svgo"],
+    },
+  },
 });

@@ -8,7 +8,7 @@ const { content } = Astro.props;
 ---
 
 <SiteLayout title={content.title} description={content.description} bodyClass='markdown'>
-  <Container maxWidth="650px">
+  <Container maxWidth="720px">
     <ArticleHero title={content.title} date={content.date} tags={content.tags} />
     <MarkdownWrapper>
       <slot />
