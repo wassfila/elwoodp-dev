@@ -1,15 +1,13 @@
 ---
-import IconAstro from '@assets/icons/icon-astro.astro';
-import IconGithub from '@assets/icons/icon-github.astro';
-import IconNetlify from '@assets/icons/icon-netlify.astro';
+import { Icon } from 'astro-icon';
 ---
 
 <footer>
   <div>Made by Paul Littlewood</div>
   <nav>
-    <a href="https://astro.build/"><span class="icon"><IconAstro /></span>Astro</a>
-    <a href="https://www.netlify.com/"><span class="icon"><IconNetlify /></span>Netlify</a>
-    <a href="https://github.com/Elwood-P"><span class="icon"><IconGithub /></span>GitHub</a>
+    <a href="https://astro.build/"><span class="icon"><Icon name="icon-footer-astro"></span>Astro</a>
+    <a href="https://www.netlify.com/"><span class="icon"><Icon name="icon-footer-netlify"></span>Netlify</a>
+    <a href="https://github.com/Elwood-P"><span class="icon"><Icon name="icon-footer-github"></span>GitHub</a>
   </nav>
 </footer>
 
@@ -44,5 +42,8 @@ import IconNetlify from '@assets/icons/icon-netlify.astro';
 
   .icon {
     @mixin theme(color, $gray-800, $gray-300);
+    & :global(svg) {
+      width: 21px;
+    }
   }
 </style>

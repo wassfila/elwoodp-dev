@@ -1,5 +1,5 @@
 ---
-import ProjectIcon from '@components/UI/Icons/ProjectIcon.astro';
+import Icon from 'astro-icon';
 import HeroHeading from './HeroHeading.astro';
 import Meta from '@components/Heros/Meta/Meta.astro';
 import MetaDivider from '@components/Heros/Meta/MetaDivider.astro';
@@ -10,7 +10,7 @@ const { content } = Astro.props;
 <header>
   <HeroHeading title={content.title} />
   <Meta>
-    <ProjectIcon icon={content.icon} />
+    <Icon name={`icon-project-${content.icon}`} />
     <MetaDivider />
     <div class="meta__description">{content.description}</div>
     <MetaDivider />
@@ -34,9 +34,9 @@ const { content } = Astro.props;
     font-size: toRem(14px);
   }
 
-  :global(.meta svg) {
+  header :global( svg) {
     width: 26px;
-    height: 26px;
+    flex-shrink: 0;
   }
 
   .meta__description {

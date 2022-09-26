@@ -1,14 +1,15 @@
 ---
-import IconSun from '@assets/icons/icon-sun.astro';
-import IconMoon from '@assets/icons/icon-moon.astro';
+import Icon from 'astro-icon';
 ---
 
 <button id="theme-toggle" data-toggle-theme="light,dark" data-act-class="active">
   <div class="icon icon-sun">
-    <IconSun />
+    <!-- <IconSun /> -->
+    <Icon name="bi:sun-fill" />
   </div>
   <div class="icon icon-moon">
-    <IconMoon />
+    <!-- <IconMoon /> -->
+    <Icon name="bi:moon-fill" />
   </div>
 </button>
 
@@ -31,6 +32,7 @@ import IconMoon from '@assets/icons/icon-moon.astro';
     justify-content: center;
     width: 22px;
     height: 22px;
+    padding: 3px;
     border-radius: 100%;
     :global(svg) {
       padding: .5px;

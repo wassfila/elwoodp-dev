@@ -1,7 +1,6 @@
 ---
 import ThemeToggle from './ThemeToggle.astro';
-import IconMenu from '@assets/icons/icon-menu.astro';
-import IconX from '@assets/icons/icon-x.astro';
+import Icon from 'astro-icon';
 
 let parentPathname = '';
 let slashCount = 0;
@@ -20,10 +19,10 @@ for (const c of Astro.url.pathname) {
       <li><a href="/projects/" class={parentPathname == '/projects/' ? 'active' : ''}>Projects</a></li>
       <li><a href="/articles/" class={parentPathname == '/articles/' ? 'active' : ''}>Articles</a></li>
     </ul>
-    <button id="header-nav__close-button" class="header-nav__close-button"><IconX /></button>
+    <button id="header-nav__close-button" class="header-nav__close-button"><Icon name="icon-x" /></button>
   </nav>
   <ThemeToggle />
-  <button id="header-nav__open-button" class="header-nav__open-button"><IconMenu /></button>
+  <button id="header-nav__open-button" class="header-nav__open-button"><Icon name="bi:list" /></button>
 </header>
 
 <style>
@@ -75,6 +74,9 @@ for (const c of Astro.url.pathname) {
 
   .header-nav__open-button {
     @mixin theme-old color, var(--gray-50), var(--gray-900);
+    & :global(svg) {
+      width: 28px;
+    }
   }
 
   .header-nav__close-button {
@@ -82,6 +84,9 @@ for (const c of Astro.url.pathname) {
     top: 1.25rem;
     right: 1.25rem;
     @mixin theme-old color, var(--gray-50), var(--gray-900);
+    & :global(svg) {
+      width: 16px;
+    }
   }
 
   /* Tablet and up */

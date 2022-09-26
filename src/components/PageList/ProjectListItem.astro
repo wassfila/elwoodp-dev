@@ -1,5 +1,5 @@
 ---
-import ProjectIcon from "@components/UI/Icons/ProjectIcon.astro";
+import Icon from "astro-icon";
 
 const { projectUrl, title, icon, sourceUrl, liveUrl } = Astro.props;
 ---
@@ -7,7 +7,7 @@ const { projectUrl, title, icon, sourceUrl, liveUrl } = Astro.props;
 <li class="project">
   <a class="title-link" href={projectUrl}>
     <span class="icon">
-      <ProjectIcon icon={icon} />
+      <Icon name={`icon-project-${icon}`} />
     </span>
     <h3>{title}</h3>
   </a>
@@ -40,6 +40,10 @@ const { projectUrl, title, icon, sourceUrl, liveUrl } = Astro.props;
     &:hover {
       color: $blue;
     }
+  }
+
+  .project :global(svg) {
+    width: 26px;
   }
 
   /* Cleanup on small mobile */
