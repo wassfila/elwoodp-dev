@@ -6,16 +6,20 @@ import ArticleListItem from './ArticleListItem.astro';
 const { type, title, maxNumber, displayHeader } = Astro.props;
 const projects = await Astro.glob('../../pages/projects/*.md');
 const articles = await Astro.glob('../../pages/articles/*.md');
+
 // Order both by date
 projects.sort((a, b) => new Date(b.frontmatter.date) - new Date(a.frontmatter.date));
 articles.sort((a, b) => new Date(b.frontmatter.date) - new Date(a.frontmatter.date));
+
+// Filter out article drafts - NB Ulysses marks drafts with "#DRAFT" at end of md file
+const publishedArticles = articles.filter((article) => !article.rawContent().includes('#DRAFT'));
 ---
 
 <section>
   {displayHeader && <PageListHeader title={title} type={type} />}
   <ul>
     {type === 'projects' && projects.slice(0, maxNumber).map((project) => <ProjectListItem projectUrl={project.url} {...project.frontmatter} />)}
-    {type === 'articles' && articles.slice(0, maxNumber).map((article) => <ArticleListItem articleUrl={article.url} {...article.frontmatter} />)}
+    {type === 'articles' && publishedArticles.slice(0, maxNumber).map((article) => <ArticleListItem articleUrl={article.url} {...article.frontmatter} />)}
   </ul>
 </section>
 
