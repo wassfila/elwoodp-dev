@@ -4,6 +4,7 @@ title: How to Hide API Keys on Netlify
 description: Insert description here
 tags:
 - Netlify
+- Javascript
 layout: '@layouts/ArticleLayout.astro'
 ---
 

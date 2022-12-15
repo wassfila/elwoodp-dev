@@ -4,7 +4,6 @@ title: Fluid sizing using CSS clamp
 description: Within that broad spectrum the wavelengths visible to humans occupy a very narrow band.
 tags:
 - CSS
-- PHP
 layout: '@layouts/ArticleLayout.astro'
 ---
 

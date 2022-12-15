@@ -22,7 +22,7 @@ myList.map((item, index) => (
 )
 ```
 
-The error goes away and you celebrate 🎉. Unfortunately, this method turns out to have potentially [serious drawbacks](https://robinpokorny.com/blog/index-as-a-key-is-an-anti-pattern/). Perhaps even more importantly copying the solution hasn’t furthered our understanding of the key issue - how and why does React use keys when rendering arrays of items?
+The error goes away and you celebrate 🎉. Unfortunately, this method of assigning the key the array index value, turns out to have potential [serious drawbacks](https://robinpokorny.com/blog/index-as-a-key-is-an-anti-pattern/). Perhaps even more importantly copying the solution hasn’t furthered our understanding of the issue - how and why does React use keys when rendering an arrays of items?
 
 ## Understanding Keys in React
 
@@ -30,11 +30,13 @@ From the [React Docs](https://reactjs.org/docs/lists-and-keys.html#keys):
 
 > Keys help React identify which items have changed, are added, or are removed. Keys should be given to the elements inside the array to give the elements a stable identity.
 
-From this we can see that keys need to be **unique** and **consistent** for React to keep track of an item in the DOM. The example above satisfies the first requirement but not the second. If we delete an item from our list the items following it will now be given a new index on re-render. This can lead to React becoming confused and can result in the wrong properties being mapped to their corresponding items.
+From this we can see that keys need to be **unique** and **consistent** for React to keep track of an item in the DOM. 
 
-## A Good Solution Comes From Understanding the Problem
+The example above satisfies the first requirement but not the second. If we delete an item from our list the items following it will now be given a new index on re-render. This can lead to React becoming confused and result in the wrong properties being mapped to their corresponding items.
 
-Now we understand how things work we can either work out a solution for ourselves or help us identify which are the good solutions published online. In the case of React Keys the easiest solution is to use a Unique ID from the data itself.
+## Good Understanding Leads to a Good Solution
+
+Now we understand how things work we can either work out a solution for ourselves or help us identify which are the good solutions published online. In the case of React Keys the best solution is to use a Unique ID from the data itself.
 
 ```js
 const myList = [
@@ -50,4 +52,4 @@ myList.map((item) => (
 )
 ```
 
-In this example we can see that the keys assigned to our items are now both **unique** and **consistent**. Even if we delete item ‘bar’, item ‘baz’ will still be given the same key in re-render allowing React to keep track of it.
+In this example we can see that the keys assigned to our items are now both **unique** and **consistent**. Even if we delete item ‘bar’, item ‘baz’ will still be given the same key on re-render allowing React to keep track of it.
