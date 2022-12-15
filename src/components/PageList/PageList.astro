@@ -8,7 +8,7 @@ const projects = await Astro.glob('../../pages/projects/*.md');
 const articles = await Astro.glob('../../pages/articles/*.md');
 
 // Order both by date
-projects.sort((a, b) => new Date(b.frontmatter.date) - new Date(a.frontmatter.date));
+projects.sort((a, b) => new Date(b.frontmatter.order) - new Date(a.frontmatter.order));
 articles.sort((a, b) => new Date(b.frontmatter.date) - new Date(a.frontmatter.date));
 
 // Filter out article drafts - NB Ulysses marks drafts with "#DRAFT" at end of md file
