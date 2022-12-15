@@ -1,5 +1,5 @@
 ---
-date: 03 Mar 2022
+date: 12 Dec 2021
 title: Better Responsive Images in Wordpress
 description: Within that broad spectrum the wavelengths visible to humans occupy a very narrow band.
 tags:
