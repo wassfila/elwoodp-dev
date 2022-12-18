@@ -77,7 +77,7 @@ module.exports = { handler };
 
 ### Using the Serverless Function
 
-Now simply make an HTTP request to the serverless function to  get the data. Here is an example I used in my project using Fetch.
+Now simply make an HTTP request to the serverless function to  get the data. The following is an example I used in my project using Fetch.
 
 ```js
 async function getRandomCharacter(error) {
@@ -86,7 +86,9 @@ async function getRandomCharacter(error) {
     const response = await fetch(`/.netlify/functions/token-hider?${characterNumber}`);
     if (response.ok) {
       const newCharacterArray = await response.json();
-	  // Do something with data here
+
+	  // Do something with the data here
+
     } else {
       renderFetchError(`${response.status}: ${response.statusText}`);
     }
