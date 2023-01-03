@@ -1,9 +1,11 @@
 $red: rgb(240 107 120);
+$red__light: rgb(246 162 171);
 $yellow: rgb(249 209 140);
 $green: rgb(169 208 138);
 $teal: rgb(96 192 205);
 $cyan: rgb(126 195 252);
 $blue: rgb(102 140 255);
+$blue__light: rgb(163 186 255);
 $indigo: rgb(144 138 255);
 $violet: rgb(196 141 251);
 
@@ -25,3 +27,14 @@ $gray-850: rgb(56 61 76); /* #383d4c */
 $gray-900: rgb(49 53 67); /* #313543 */
 $gray-950: rgb(44 48 60); /* #2c303c */
 $gray-975: rgb(38 41 53); /* #262935 */
+
+
+:root {
+  /* Legacy - still used for icons */
+  --gray-900: rgb(49 53 67);
+
+  --blue: rgb(102 140 255);
+  --cyan: rgb(126 195 252);
+  --red: rgb(240 107 120);
+  --yellow: rgb(249 209 140);
+}
