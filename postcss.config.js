@@ -54,8 +54,8 @@ function fluid(minValue, maxValue, convertTo) {
   }
 
   const targetValue = `calc(${minValue} + (${stripUnit(maxValue) - stripUnit(minValue)}) * ((100vw - ${minVW}) / (${stripUnit(maxVW) - stripUnit(minVW)})))`;
+  
   return `clamp(${minValue}, ${targetValue}, ${maxValue})`;
-  // return `${maxValue}`;
 }
 
 function alpha(color, alpha) {

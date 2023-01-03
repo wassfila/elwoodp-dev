@@ -44,6 +44,5 @@ Media queries and pseudo classes just slot in with their selector counterparts w
 <div class="relative / flex items-center justify-between / mx-2 md:mx-3 lg:mx-4 border-2 / border-indigo bg-black hover:bg-indigo / font-medium text-white">
 ```
 
----
 
 No doubt this won’t convert you if you’ve made up your mind that you don’t like Tailwind (there are some [strong opinions](https://www.aleksandrhovhannisyan.com/blog/why-i-dont-like-tailwind-css/) out there!). But I find this way of writing a big improvement and goes a long way to alleviating one of Tailwind’s biggest problems.
