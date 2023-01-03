@@ -1,14 +1,15 @@
 ---
 date: 13 Dec 2022
-title: How to Avoid Bad Advice & React Keys
+title: How to Avoid Bad Advice – React Keys
 description: How to avoid bad programming advice using my experience with React Keys as an example.
 tags:
 - React
 layout: '@layouts/ArticleLayout.astro'
 ---
 
-> Each child in an array should have a unique "key" prop.
-> Check the render method of SomeComponent.
+<aside class="aside--error">
+	Each child in an array should have a unique "key" prop. Check the render method of SomeComponent.
+</aside>
 
 Everyone learning React will be familiar with this error. The success of rendering a list of items marred by a confusing error left in the console. So you Google the error, find an [overwhelmingly upvoted answer](https://stackoverflow.com/a/28329550/1954838) from Stack Overflow and use it to fix your code. Something like this:
 
@@ -28,11 +29,9 @@ The error goes away and you celebrate 🎉. Unfortunately, this method of assign
 
 From the [React Docs](https://reactjs.org/docs/lists-and-keys.html#keys): 
 
-<aside class="aside--quote">
-	Keys help React identify which items have changed, are added, or are removed. Keys should be given to the elements inside the array to give the eslements a stable identity.
+<aside class="aside--info">
+	"Keys help React identify which items have changed, are added, or are removed. Keys should be given to the elements inside the array to give the eslements a stable identity."
 </aside>
-
-> Keys help React identify which items have changed, are added, or are removed. Keys should be given to the elements inside the array to give the elements a stable identity.
 
 From this, we can see that keys need to be **unique** and **consistent** for React to keep track of an item in the DOM. 
 
