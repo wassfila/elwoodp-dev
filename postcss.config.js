@@ -23,7 +23,7 @@ function toPx(number) {
 function stripUnit(value) {
   let number = '';
   for (let char of String(value)) {
-    if (!isNaN(char) || char == '.') number += char;
+    if (!isNaN(char) || char == '.' || char == '-') number += char;
   }
   return Number(number);
 }
@@ -55,6 +55,7 @@ function fluid(minValue, maxValue, convertTo) {
 
   const targetValue = `calc(${minValue} + (${stripUnit(maxValue) - stripUnit(minValue)}) * ((100vw - ${minVW}) / (${stripUnit(maxVW) - stripUnit(minVW)})))`;
   return `clamp(${minValue}, ${targetValue}, ${maxValue})`;
+  // return `${maxValue}`;
 }
 
 function alpha(color, alpha) {
