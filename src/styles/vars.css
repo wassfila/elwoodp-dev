@@ -31,10 +31,10 @@ $gray-975: rgb(38 41 53); /* #262935 */
 
 :root {
   /* Legacy - still used for icons */
-  --gray-900: rgb(49 53 67);
+  --gray-900: $gray-900;
 
-  --blue: rgb(102 140 255);
-  --cyan: rgb(126 195 252);
-  --red: rgb(240 107 120);
-  --yellow: rgb(249 209 140);
+  --blue: $blue;
+  --cyan: $cyan;
+  --red: $red;
+  --yellow: $yellow;
 }
