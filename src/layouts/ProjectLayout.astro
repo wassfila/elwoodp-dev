@@ -18,7 +18,7 @@ readme = readme.replaceAll('[ ] ', ''); // Remove md todo TODO: Add custom todo 
   <Container maxWidth="720px">
     <ProjectHero content={content} />
     <div>
-      <ProjectContentToolbar />
+      <ProjectContentToolbar sourceUrl={content.sourceUrl} liveUrl={content.liveUrl}/>
       <MarkdownWrapper>
         <Markdown content={readme} />
       </MarkdownWrapper>
