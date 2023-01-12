@@ -94,6 +94,7 @@
   article :global(pre) {
     background: transparent !important;
     overflow-x: auto;
+    scrollbar-color: alpha($gray-500, 25%) transparent; // Firefox https://caniuse.com/?search=scrollbar-color
     &:global(::-webkit-scrollbar), &:global(::-webkit-scrollbar-track) {
         background-color: transparent;
     }
