@@ -27,7 +27,8 @@
   /* Asides                                                    */
   /* --------------------------------------------------------- */
 
-  article :global(aside), article :global(blockquote) {
+  article :global(aside),
+  article :global(blockquote) {
     position: relative;
     margin-inline: fluid(-32px, -24px, toRem);
     padding: fluid(24px, 32px, toRem);
@@ -57,7 +58,8 @@
     }
   }
 
-  article :global(.aside--info), article :global(blockquote) {
+  article :global(.aside--info),
+  article :global(blockquote) {
     @mixin theme(background-color, alpha($blue, 8%), alpha($blue, 14%));
     @mixin theme(color, $gray-950, $blue__light);
     &:after {
@@ -157,21 +159,17 @@
   article :global(h4),
   article :global(h5),
   article :global(h6) {
-    @mixin theme-old color, var(--gray-50), var(--gray-800);
+    @mixin theme color, var(--gray-800), var(--gray-50);
     font-weight: 600;
   }
-
-  /* article :global(h2) {
-    margin-top: fluid(56px, 56px, toRem);
-    margin-bottom: fluid(32px, 32px, toRem);
-    font-size: fluid(36px, 36px, toRem);
-    line-height: 130%;
-  } */
 
   article :global(h2) {
     font-size: fluid(30, 30, toRem);
     margin-top: fluid(64px, 40px, toRem);
     line-height: 130%;
+    & + :global(*) {
+      margin-top: toRem(32px) !important;
+    }
   }
 
   /* LISTS */
@@ -187,5 +185,23 @@
 
   article :global(li input) {
     display: none; /* TODO: Needs styling rather than hiding - Astro doesn't add anything helpful to markup for targetting */
+  }
+
+  /* Todo bullet list styling. :has is still lacking a bit of support (https://caniuse.com/css-has) but fallbacks to normal bullet. */
+  article :global(li:has(.todo)) {
+    list-style: none;
+    position: relative;
+    &::before {
+      content: '';
+      position: absolute;
+      width: 14px;
+      height: 14px;
+      left: -1.25rem;
+      top: .4rem;
+      @mixin theme background, $gray-100, $gray-850;
+      border: 1px solid;
+      @mixin theme border-color, $gray-300, $gray-800;
+      border-radius: 2px;
+    }
   }
 </style>
