@@ -37,7 +37,10 @@ export default defineConfig({
   vite: {
     // Added for https://github.com/natemoo-re/astro-icon
     ssr: {
-      external: ["svgo"],
+      external: ['svgo'],
     },
+  },
+  server: {
+    host: true,
   },
 });
