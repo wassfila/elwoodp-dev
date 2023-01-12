@@ -7,7 +7,7 @@ tags:
 layout: '@layouts/ArticleLayout.astro'
 ---
 
-I’ve recently been working on an [eCommerce frontend](/link-to-rowanreact) using React. Naturally I want the cart state to persist between page refreshes and I know using local storage is a good way to do this. I’ve successfully stored state in local storage before in previous projects but not with Redux which turns out to present an interesting challenge.
+I’ve recently been working on an [eCommerce frontend](https://rowan-react.netlify.app/) using React. Naturally I want the cart state to persist between page refreshes and I know using local storage is a good way to do this. I’ve successfully stored state in local storage before in previous projects but not with Redux which turns out to present an interesting challenge.
 
 ## Starting Code
 
@@ -95,12 +95,12 @@ Also from the [Redux Docs](https://redux.js.org/understanding/history-and-design
 OK, well that seems pretty categorical. In this case the code does in fact work but I’d rather stick with best practices and learn how to do this properly which will serve us better in the future.
 
 ## Let’s Have Another Go
-A little more research through up a number of potential solutions including and but the most promising and simple seemed to be a new Toolkit feature [createListenerMiddleware](https://redux-toolkit.js.org/api/createListenerMiddleware).
+A little more research threw up a number of potential solutions but the most promising and simple seems to be a new Redux Toolkit feature [createListenerMiddleware](https://redux-toolkit.js.org/api/createListenerMiddleware).
 <aside class="aside--info">
 	A Redux middleware that lets you define "listener" entries that contain an "effect" callback with additional logic, and a way to specify when that callback should run based on dispatched actions or state changes.
 </aside>
 
-Sounds perfect for our use case, looks simple to use and nothing to install. Lets give it a go!
+Sounds perfect for our use case, it looks simple to use and nothing new to install. Lets give it a go!
 
 
 ```js
@@ -123,3 +123,5 @@ const store = configureStore({
 
 export default store;
 ```
+
+Great, it works perfectly 🙂. You can see the code implemented in the project [here](https://github.com/Elwood-P/rowan-react/tree/main/src/store).
