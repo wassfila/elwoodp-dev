@@ -33,6 +33,10 @@ const publishedArticles = articles.filter((article) => !article.rawContent().inc
     border-radius: 8px;
     --box-shadow-ondark: inset 0px 1px 0px alpha($gray-800, 0.5);
     @mixin theme(box-shadow, none, var(--box-shadow-ondark));
+    @media (max-width: 767px) {
+      margin-inline: -24px;
+      border-radius: 0;
+    }
     &:after {
       content: '';
       position: absolute;
@@ -47,7 +51,9 @@ const publishedArticles = articles.filter((article) => !article.rawContent().inc
   }
 
   ul {
-    padding: toRem(24px) 48px toRem(32px) 48px;
+    padding-top: toRem(24px);
+    padding-bottom: toRem(32px);
+    padding-inline: fluid(24px, 48px);
   }
 
   /* Common styling for child elements */

@@ -10,7 +10,10 @@ const { maxWidth } = Astro.props;
 
 <style>
   .container-wrapper {
-    padding-inline: fluid(24px, 48px);
+    padding-inline: fluid(24px, 48px, toRem);
+    @media (max-width: 767px) {
+      padding-inline: 24px;
+    }
   }
 
   .container {

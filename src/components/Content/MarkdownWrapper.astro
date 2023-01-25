@@ -30,11 +30,16 @@
   article :global(aside),
   article :global(blockquote) {
     position: relative;
-    margin-inline: fluid(-32px, -24px, toRem);
-    padding: fluid(24px, 32px, toRem);
+    margin-inline: -24px;
+    padding: 24px toRem(24px);
     white-space: normal;
     border-radius: 8px;
     margin-block: fluid(64px, 40px, toRem);
+    font-size: .89em;
+    @media (max-width: 767px) {
+      border-radius: 0;
+      padding-top: toRem(36px);
+    }
     &:after,
     &:before {
       content: '';
@@ -42,11 +47,14 @@
       top: -15px;
       bottom: 0;
       left: -15px;
-      width: 30px;
-      height: 30px;
-      border: 3px solid;
-      @mixin theme(box-shadow, 0 0 0 2px $gray-50, 0 0 0 2px $gray-950);
+      width: 28px;
+      height: 28px;
+      /* border: 2px solid; */
+      @mixin theme(box-shadow, 0 0 0 9px $gray-50, 0 0 0 9px $gray-950);
       box-sizing: content-box;
+      @media (max-width: 767px) {
+        left: toRem(20px);
+      }
     }
     &:after {
       mask-repeat: no-repeat;
@@ -61,40 +69,36 @@
   article :global(.aside--info),
   article :global(blockquote) {
     @mixin theme(background-color, alpha($blue, 8%), alpha($blue, 14%));
-    /* @mixin theme(color, $gray-950, $blue__light); */
     &:after {
       @mixin theme(background-color, $gray-50, $gray-850);
       mask-image: url('../../icons/icon-info.svg');
+      mask-size: 80%;
     }
     &:before {
       background-color: $blue;
-      @mixin theme(border-color, alpha($blue, 35%), alpha($blue, 65%));
     }
   }
 
   article :global(.aside--error) {
     @mixin theme(background-color, alpha($red, 12%), alpha($red, 12%));
-    /* @mixin theme(color, $gray-950, $red__light); */
     &:after {
       @mixin theme(background-color, $gray-50, $gray-850);
-      mask-image: url('../../icons/icon-exclamation.svg');
-      mask-size: 28px;
+      mask-image: url('../../icons/icon-info.svg');
+      mask-size: 80%;
+      transform: rotate(180deg);
     }
     &:before {
       background-color: $red;
-      @mixin theme(border-color, alpha($red, 45%), alpha($red, 50%));
     }
   }
 
   /* CODE BLOCK (shiki + remark-code-extra - see astro.config) */
   /* --------------------------------------------------------- */
 
-
-
   article :global(pre) {
     background: transparent !important;
     overflow-x: auto;
-    scrollbar-color: alpha($gray-500, 25%) transparent; // Firefox https://caniuse.com/?search=scrollbar-color
+    scrollbar-color: alpha($gray-500, 25%) transparent; /* Firefox https://caniuse.com/?search=scrollbar-color */
     &:global(::-webkit-scrollbar), &:global(::-webkit-scrollbar-track) {
         background-color: transparent;
     }
@@ -108,16 +112,19 @@
 
   :global(div.codeblock) {
     padding-block: fluid(24px, 24px, toRem);
-    padding-inline: fluid(24px, 32px, toRem);
+    padding-inline: toRem(24px);
     @mixin theme(background-color, $gray-950, $gray-975);
     border-radius: 8px;
     font-size: toRem(14px);
     line-height: 170%;
     position: relative;
     margin-block: fluid(64px, 40px, toRem);
-    margin-inline: fluid(-32px, -24px, toRem);
+    margin-inline: -24px;
     white-space: normal;
     font-family: Menlo, Monaco, monospace;
+    @media (max-width: 767px) {
+      border-radius: 0;
+    }
   }
 
   /* language badge */
@@ -158,6 +165,23 @@
     content: 'php';
   }
 
+  /* IMAGES */
+  /* ------ */
+
+  article :global(img) {
+    border-radius: 8px;
+    @media (max-width: 767px) {
+      border-radius: 0;
+    }
+  }
+
+  article :global(p:has(img)) {
+    margin-inline: -24px;
+  }
+
+
+
+
   /* HEADINGS */
   /* -------- */
 
@@ -196,6 +220,24 @@
 
   article :global(li input) {
     display: none; /* TODO: Needs styling rather than hiding - Astro doesn't add anything helpful to markup for targetting */
+  }
+
+  /* Ordered Lists */
+  article :global(ol) {
+    display: table;
+    list-style: none;
+    counter-reset: test;
+  }
+
+  article :global(ol li) {
+    display: table-row;
+  }
+
+  article :global(ol li::before) {
+    display: table-cell;
+    padding-right: 3px;;
+    counter-increment: test;
+    content: counter(test) ". ";
   }
 
   /* Todo bullet list styling. :has is still lacking a bit of support (https://caniuse.com/css-has) but fallbacks to normal bullet. */
