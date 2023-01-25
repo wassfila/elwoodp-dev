@@ -1,6 +1,6 @@
 ---
 date: 02 Feb 2022
-title: How to Hide API Keys on Netlify
+title: Hiding API Keys on Netlify
 description: Insert description here
 tags:
 - Netlify
@@ -30,7 +30,7 @@ The solution below assumes that a project has been setup on Netlify and [Netlify
 
 The API key can be saved as an environmental variable using Netlify’s UI. Go to **Site settings** \> **Build & deploy** \> **Environment** and add a new variable.
 
-![GitGuardian Email](https://kimba-imagecdn.imgix.net/elwoodp-dev/netlify-env-setup.png)
+![Netlify Env Setup](https://kimba-imagecdn.imgix.net/elwoodp-dev/netlify-env-setup.png)
 
 ### Creating a Serverless Function
 
@@ -87,7 +87,7 @@ async function getRandomCharacter(error) {
     if (response.ok) {
       const newCharacterArray = await response.json();
 
-	  // Do something with the data here
+    // Do something with the data here
 
     } else {
       renderFetchError(`${response.status}: ${response.statusText}`);
