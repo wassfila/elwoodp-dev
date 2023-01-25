@@ -6,5 +6,5 @@ date: 2021
 order: 1
 sourceUrl: /Elwood-P/fun-with-fetch-and-array-methods
 liveUrl: https://jsv-fetch-array.netlify.app/
-icon: react
+icon: php
 ---
