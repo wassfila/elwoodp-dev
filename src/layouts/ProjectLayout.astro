@@ -8,9 +8,10 @@ import Markdown from '@astrojs/markdown-component';
 
 const { content } = Astro.props;
 
-const response = await fetch(`https://raw.githubusercontent.com/${content.sourceUrl}/main/README.md`);
-let readme = await response.text();
-readme = readme.replaceAll('- [ ]', '- <span class="todo"></span>'); // Remove md todo TODO: Add custom todo styling
+// const response = await fetch(`https://raw.githubusercontent.com/${content.sourceUrl}/main/README.md`);
+// let readme = await response.text();
+// readme = readme.replaceAll('- [ ]', '- <span class="todo"></span>'); // Remove md todo TODO: Add custom todo styling
+readme = 'test';
 
 ---
 
