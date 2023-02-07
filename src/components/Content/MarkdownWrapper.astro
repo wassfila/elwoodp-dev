@@ -169,6 +169,22 @@
     content: 'scss';
   }
 
+  /* inline code */
+  :global(:not(pre) > code) {
+    font-family: unset;
+    display: inline-flex;
+    column-gap: toRem(5px);
+    padding: toRem(2px) toRem(4px);
+    margin-inline: toRem(2px);
+    @mixin theme(background-color, $white, $gray-900);
+    border: 1px solid;
+    @mixin theme(border-color, $gray-400, $gray-850);
+    border-radius: 4px;
+    font-size: .9em;
+    line-height: 100%;
+  }
+
+
   /* IMAGES */
   /* ------ */
 
@@ -203,8 +219,17 @@
   }
 
   article :global(h2) {
-    font-size: fluid(30, 30, toRem);
+    font-size: fluid(26, 30, toRem);
     margin-top: fluid(64px, 40px, toRem);
+    line-height: 130%;
+    & + :global(*) {
+      margin-top: toRem(32px) !important;
+    }
+  }
+
+  article :global(h3) {
+    font-size: fluid(20, 24, toRem);
+    margin-top: fluid(46px, 32px, toRem);
     line-height: 130%;
     & + :global(*) {
       margin-top: toRem(32px) !important;
