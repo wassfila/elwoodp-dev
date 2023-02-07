@@ -38,7 +38,7 @@ A method of doing this with CSS has been around for a while, using viewport unit
 
 Yikes 😬, whilst it works beautifully the code isn’t pretty. Imagine this lot littering your CSS every time you need to set a font size. 
 
-When [clamp()](https://developer.mozilla.org/en-US/docs/Web/CSS/clamp) was introduced to CSS things got a little simpler, making it possible to define minimum and maximum boundaries without using media queries.
+When `clamp()` was introduced to CSS things got a little simpler, making it possible to define minimum and maximum boundaries without using media queries.
 
 ```css
 .fluid-text {
