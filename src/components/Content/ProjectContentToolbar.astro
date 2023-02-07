@@ -5,11 +5,11 @@ const { sourceUrl, liveUrl } = Astro.props;
 ---
 
 <div class="content-toolbar">
-  <div class="section">
-    <Button icon="bi:list-ul"/>
+  <div class="section section--left">
+    <Button icon="bi:list-ul" />
     <span class="file-name">README.md</span>
   </div>
-  <div class="section">
+  <div class="section section--right">
     <Button link={`https://github.com/${sourceUrl}`} icon="bi:github">Source</Button>
     <Button link={liveUrl} icon="bi:lightning-charge-fill">Live</Button>
   </div>
@@ -26,6 +26,9 @@ const { sourceUrl, liveUrl } = Astro.props;
     margin-bottom: toRem(60px);
     padding-bottom: toRem(16px);
     border-bottom: 1px solid;
+    @media (max-width: 767px) {
+      padding-inline: 24px;
+    }
     @mixin theme(border-color, alpha($gray-300, 75%), alpha($gray-800, 50%));
   }
 
@@ -33,6 +36,12 @@ const { sourceUrl, liveUrl } = Astro.props;
     display: flex;
     align-items: center;
     gap: toRem(16px);
+  }
+
+  .section--left :global(.button) {
+    @media (max-width: 380px) {
+      display: none;
+    }
   }
 
   .file-name {
