@@ -1,10 +1,10 @@
 ---
 layout: ../../layouts/ProjectLayout.astro
-title: Responsive Images Plugin
-description: Fun with fetch & array methods - Part of a series of practice projects to sharpen skills in vanilla javascript.
+title: Wordpress Images on Demand
+description: Better image handling with WordPress
 date: 2021
 order: 1
-sourceUrl: /Elwood-P/fun-with-fetch-and-array-methods
+sourceUrl: /Elwood-P/wordpress-images-on-demand
 liveUrl: https://jsv-fetch-array.netlify.app/
 icon: php
 ---
