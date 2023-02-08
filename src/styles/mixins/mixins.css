@@ -7,12 +7,3 @@
     $(property): $dark-value;
   }
 }
-
-@define-mixin theme-old $property, $dark-value, $light-value {
-  :global([data-theme='dark']) & {
-    $(property): $dark-value;
-  }
-  :global([data-theme='light']) & {
-    $(property): $light-value;
-  }
-}

@@ -73,7 +73,7 @@ for (const c of Astro.url.pathname) {
   }
 
   .header-nav__open-button {
-    @mixin theme-old color, var(--gray-50), var(--gray-900);
+    @mixin theme(color, var(--gray-900), var(--gray-50));
     & :global(svg) {
       width: 28px;
     }
@@ -83,7 +83,7 @@ for (const c of Astro.url.pathname) {
     position: absolute;
     top: 1.25rem;
     right: 1.25rem;
-    @mixin theme-old color, var(--gray-50), var(--gray-900);
+    @mixin theme(color, var(--gray-900), var(--gray-50));
     & :global(svg) {
       width: 16px;
     }
