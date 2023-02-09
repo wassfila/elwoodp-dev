@@ -1,6 +1,6 @@
 ---
 import { Icon } from 'astro-icon';
-const { link, onclick, icon } = Astro.props;
+const { link, onclick, icon, ariaLabel } = Astro.props;
 ---
 
 {
@@ -10,7 +10,7 @@ const { link, onclick, icon } = Astro.props;
       <slot />
     </a>
   ) : (
-    <button class="button" onclick={onclick}>
+    <button class="button" onclick={onclick} aria-label={ariaLabel}>
       {icon && <Icon name={icon} />}
       <slot />
     </button>
