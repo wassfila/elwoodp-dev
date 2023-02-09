@@ -27,15 +27,3 @@ $gray-850: rgb(56 61 76); /* #383d4c */
 $gray-900: rgb(49 53 67); /* #313543 */
 $gray-950: rgb(44 48 60); /* #2c303c */
 $gray-975: rgb(38 41 53); /* #262935 */
-
-
-:root {
-  /* Legacy - still used for icons */
-  --gray-900: $gray-900;
-
-  --blue: $blue;
-  --green: $green;
-  --cyan: $cyan;
-  --red: $red;
-  --yellow: $yellow;
-}
