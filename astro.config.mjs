@@ -39,6 +39,17 @@ export default defineConfig({
     ssr: {
       external: ['svgo'],
     },
+
+    // https://stackoverflow.com/questions/73193881/build-one-css-file-in-astro-framework
+    // https://rollupjs.org/configuration-options/
+    build: {
+      rollupOptions: {
+        output: {
+          assetFileNames: 'assets/style.[hash][extname]',
+        }
+      }
+    },
+
   },
   server: {
     host: true,
