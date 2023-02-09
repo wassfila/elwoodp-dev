@@ -1,0 +1,10 @@
+@import "./vars.css";
+:root {
+  /* Legacy - still used for icons */
+  --gray-900: $gray-900;
+  --blue: $blue;
+  --green: $green;
+  --cyan: $cyan;
+  --red: $red;
+  --yellow: $yellow;
+}
